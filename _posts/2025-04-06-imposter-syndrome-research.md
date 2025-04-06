@@ -27,7 +27,7 @@ Academia can sometimes feel like the perfect breeding ground for these feelings.
 
 It's no wonder that little voice of doubt can get pretty loud in this environment.
 
-## Taming the 'I'm Not Good Enough' Gremlin: Some Strategies
+## Taming the "I'm Not Good Enough" Gremlin: Some Strategies
 
 So, the feelings are real and common. But you don't have to let them run the show. Managing imposter syndrome is an ongoing process, but here are a few things that sometimes helped me, or that I try to remember:
 

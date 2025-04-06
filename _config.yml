@@ -9,49 +9,50 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Your Name / Site Title"
+title                    : "ETIABI"
 title_separator          : "-"
-name                     : &name "Your Name"
-description              : &description "personal description"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
+name                     : &name 
+description              : &description 
+url                      : https://yaya-etiabi.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "yaya-etiabi/yaya-etiabi.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  avatar           : "profile_img.jpg"
+  name             : "Dr. Yaya Etiabi"
+  pronouns         : "He/Him/His" # example: "she/her"  
+  bio              : "Ph.D., Eng. | Computer & Communication Sciences and Engineering | Researcher: ISCC & Edge AI, IoT| AI Literacy Advocate"
+  location         : "Benguerir, Morocco"
+  employer         : "UM6P"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "yaya.etiabi@um6p.ma" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.com/citations?user=S_lqw5EAAAAJ"
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : "https://orcid.org/0000-0003-1269-5199"
   semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
+  pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  researchgate     : "https://www.researchgate.net/profile/Yaya-Etiabi" # URL
   scopus           : # URL
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : #"Yaya195"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
-  facebook         : # Username
+  bluesky          : #"bsky.app" # Replace this with you Bluesky username
+  linkedin         : "dr-yaya-etiabi-06285a164" # Username
+  facebook         : "yaya.etiabi" # Username
   flickr           : # Username
   foursquare       : # Username
   goodreads        : # Username
@@ -59,7 +60,6 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username

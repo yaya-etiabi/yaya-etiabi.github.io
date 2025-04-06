@@ -114,5 +114,3 @@ This is super important. Keep these points in mind:
 AI offers some genuinely exciting possibilities for making the research process smoother and potentially opening up new avenues of discovery. But it's a tool, not a magic wand. The core principles of good research – curiosity, critical thinking, rigorous methods, ethical conduct – remain firmly in *our* hands.
 
 Explore these tools, learn how they can help you, but always stay critical, stay responsible, and remember that the most important processor in your research journey is still the one between your ears.
-
-What are your experiences with AI in research? Feel free to share in the comments!

@@ -1,0 +1,40 @@
+---
+layout: archive
+title: "My Updates"
+permalink: /updates/
+author_profile: true
+---
+
+<div class="wordwrap">
+  <p>Welcome to my updates page — a space where I share the latest highlights, ongoing projects, and noteworthy moments from my professional and academic journey. Whether it’s achievements, upcoming events, reflections, or news, this page offers a snapshot of what I’m currently focused on.</p>
+  
+  <p>You can also follow my updates on <a href="https://www.linkedin.com/in/dr-yaya-etiabi-06285a164/" target="_blank">LinkedIn</a> and <a href="https://facebook.com/yaya.etiabi/" target="_blank">Facebook</a>, where I regularly share insights and updates.</p>
+
+  <h2> Stay tuned for fresh insights and updates...! 😊</h2>
+  </div>
+
+{% include base_path %}
+
+<!-- New style rendering if publication categories are defined -->
+{% if site.update_category %}
+  {% for category in site.update_category  %}
+    {% assign title_shown = false %}
+    {% for post in site.updates reversed %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr />
+        {% assign title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% for post in site.updates reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+
+

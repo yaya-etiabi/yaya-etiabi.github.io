@@ -20,10 +20,10 @@ main:
   #   url: /teaching/  
     
   - title: "Portfolio"
-    url: /coming/
+    url: /portfolio/
   
   - title: "Updates"
-    url: /coming/ 
+    url: /updates/ 
         
   - title: "Blog Posts"
     url: /blog/

@@ -56,7 +56,7 @@ Before feeding data to any model, you need to understand its structure. If you h
 [Google Colab](https://colab.research.google.com/) is a fantastic free tool that lets you run code (especially Python, common for ML) in your browser. It also now integrates AI assistance (powered by Gemini) that can help generate code based on your instructions, using the context of your notebook.
 * **Provide Context:** Start your Colab notebook. In a text cell or as part of your code prompt, paste the verified data description you got earlier.
 * **Ask the AI:** Use Colab's AI features (look for the "Generate" or similar buttons, or use code comments to prompt) to ask for code snippets. For example:
-    > "Using Python libraries like pandas and scikit-learn, please:
+    > "Using Python libraries like pandas and scikit-learn:
     > 1. Load a CSV file named 'my_data.csv'.
     > 2. Perform basic preprocessing suitable for data with this structure [referencing your description]: handle missing numerical values (e.g., with the mean), scale numerical features, and one-hot encode categorical features like 'Outcome'.
     > 3. Split the data into an 80% training set and a 20% testing set.

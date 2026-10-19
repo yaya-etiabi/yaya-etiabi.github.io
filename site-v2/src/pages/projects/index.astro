@@ -5,6 +5,6 @@ import { getCollection } from 'astro:content';
 const projects = (await getCollection('projects')).sort((a,b) => a.data.sortOrder - b.data.sortOrder);
 ---
 <BaseLayout title="Projects" description="Selected research projects, algorithms, experimental systems and open-source resources.">
-  <section class="page-hero"><div class="container"><div class="eyebrow">Technical portfolio</div><h1>Research projects</h1><p class="lead">A selection of methods, models and resources I have developed or investigated. Each project is labeled by its current research or publication status.</p></div></section>
+  <section class="page-hero"><div class="container"><div class="eyebrow">Research portfolio</div><h1>Research projects</h1><p class="lead">Manuscripts under review, published studies, ongoing investigations, and open-source resources.</p></div></section>
   <section class="section"><div class="container"><div class="grid-3">{projects.map((p,index)=><ProjectCard slug={p.id} title={p.data.title} summary={p.data.summary} status={p.data.status} period={p.data.period} tags={p.data.tags} index={index}/>)}</div><p class="note" style="margin-top:24px">Research in progress is identified explicitly; not every project has publicly released code or a peer-reviewed publication.</p></div></section>
 </BaseLayout>

@@ -1,11 +1,11 @@
 ---
 title: "Factorized Transformer for Multipath Estimation"
 summary: "Joint estimation of multipath delay, angle of arrival and angle of departure from MIMO-OFDM observations."
-status: "Ongoing research"
+status: "Under Review"
 period: "2026"
 tags: ["Transformers", "MIMO-OFDM", "Channel estimation"]
 featured: true
-sortOrder: 3
+sortOrder: 2
 ---
 
 ## Problem
@@ -26,4 +26,4 @@ Experimental work uses ray-tracing-based channel data and comparisons covering d
 
 ## Publication status
 
-This is presented as **ongoing research**. A journal or preprint citation will be linked only when the relevant manuscript becomes publicly available.
+The manuscript is **under review**. A link will be added when a public version becomes available.

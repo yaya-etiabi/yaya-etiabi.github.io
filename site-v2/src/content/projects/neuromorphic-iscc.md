@@ -1,11 +1,11 @@
 ---
 title: "Neuromorphic Edge Inference for ISCC"
 summary: "Exploratory research into spiking models and split inference under sensing and communication constraints."
-status: "Exploratory"
+status: "Research in Progress"
 period: "2026"
 tags: ["Spiking neural networks", "Split inference", "ISCC"]
 featured: false
-sortOrder: 6
+sortOrder: 3
 ---
 
 ## Motivation

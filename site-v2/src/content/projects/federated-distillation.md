@@ -1,11 +1,11 @@
 ---
 title: "Communication-Efficient Federated Distillation for Localization"
 summary: "A federated-distillation approach to regression tasks, studied through collaborative indoor localization."
-status: "Published research"
+status: "Published"
 period: "2024"
 tags: ["Knowledge distillation", "Federated learning", "IoT"]
-featured: true
-sortOrder: 2
+featured: false
+sortOrder: 7
 paperUrl: "https://doi.org/10.1109/JSEN.2024.3357798"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Radio-SLAM and Learning-Based Radio Geometry"
 summary: "Using radio-derived propagation measurements to support localization and mapping without relying exclusively on conventional visual sensors."
-status: "Ongoing research"
+status: "Research in Progress"
 period: "2026"
 tags: ["Radio-SLAM", "Localization", "Wireless sensing"]
 featured: false

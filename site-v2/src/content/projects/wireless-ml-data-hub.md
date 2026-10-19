@@ -1,7 +1,7 @@
 ---
 title: "Wireless ML Data Hub"
 summary: "A publicly maintained resource for discovering datasets and benchmarks in wireless machine learning."
-status: "Open source"
+status: "Open Source"
 period: "2026"
 tags: ["Open source", "Datasets", "Research tooling"]
 featured: false

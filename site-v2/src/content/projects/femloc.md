@@ -1,11 +1,11 @@
 ---
 title: "FeMLoc — Federated Meta-Learning for Indoor Localization"
 summary: "Collaborative meta-learning for faster adaptation of indoor localization models to new environments."
-status: "Published research"
+status: "Published"
 period: "2024"
 tags: ["Federated learning", "Meta-learning", "Localization"]
 featured: true
-sortOrder: 1
+sortOrder: 6
 paperUrl: "https://doi.org/10.1109/JIOT.2024.3440175"
 ---
 

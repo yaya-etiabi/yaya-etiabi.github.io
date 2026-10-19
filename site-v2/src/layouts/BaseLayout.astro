@@ -1,13 +1,16 @@
 ---
 import '../styles/global.css';
 import { site, withBase } from '../lib/site';
+import { officialOrigin, websiteId } from '../lib/seo';
 
 interface Props {
   title?: string;
   description?: string;
+  structuredData?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
-const { title = site.heading, description = site.description } = Astro.props;
+const { title = site.heading, description = site.description, structuredData, noindex = false } = Astro.props;
 const nav = [
   { label: 'Research', href: '/research/' },
   { label: 'Projects', href: '/projects/' },
@@ -24,8 +27,19 @@ const preview = rootPath.length > 0;
 const canonicalPath = preview && (current === rootPath || current.startsWith(rootPath + '/'))
   ? current.slice(rootPath.length) || '/'
   : current;
-const canonical = new URL(canonicalPath, preview ? 'https://yaya-etiabi.github.io' : Astro.site).href;
+const canonical = new URL(canonicalPath, preview ? officialOrigin : Astro.site).href;
 const pageTitle = title === site.heading ? title : title + ' | ' + site.name;
+const schema = structuredData ?? {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': canonical + '#webpage',
+  url: canonical,
+  name: pageTitle,
+  description,
+  inLanguage: 'en',
+  isPartOf: { '@id': websiteId },
+};
+const jsonLd = JSON.stringify(schema).replace(/</g, '\\u003c');
 ---
 <!doctype html>
 <html lang="en">
@@ -35,14 +49,17 @@ const pageTitle = title === site.heading ? title : title + ' | ' + site.name;
     <meta name="theme-color" content="#f8faf9" />
     <meta name="description" content={description} />
     <meta name="author" content="Yaya Etiabi" />
-    <meta name="robots" content={preview ? 'noindex,nofollow' : 'index,follow'} />
+    <meta name="robots" content={preview ? 'noindex,nofollow' : noindex ? 'noindex,follow' : 'index,follow'} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={officialOrigin + '/portrait.webp'} />
+    <meta property="og:image:alt" content="Portrait of Yaya Etiabi" />
     <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" is:inline set:html={jsonLd} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <title>{pageTitle}</title>
   </head>

@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 import { withBase, site } from '../lib/site';
 import { Image } from 'astro:assets';
 import portrait from '../assets/yaya-portrait-cutout.webp';
+import { homeStructuredData } from '../lib/seo';
 
 const projects = (await getCollection('projects')).sort((a,b) => a.data.sortOrder - b.data.sortOrder);
 const featured = projects.filter(p=>p.data.featured).slice(0,3);
@@ -16,7 +17,7 @@ const areas = [
   {number:'03',title:'Collaborative & Privacy-Preserving ML',description:'Distributed learning, adaptation and communication-efficient knowledge exchange in wireless networks.'},
 ];
 ---
-<BaseLayout>
+<BaseLayout structuredData={homeStructuredData()}>
   <section class="hero personal-hero">
     <div class="container hero-grid personal-hero-grid">
       <div class="hero-copy">

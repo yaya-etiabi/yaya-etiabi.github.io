@@ -2,6 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../lib/site';
 ---
-<BaseLayout title="Page not found">
+<BaseLayout title="Page not found" noindex>
   <section class="section"><div class="container"><div class="eyebrow">404</div><h1>Page not found</h1><p class="lead">The address may have changed during the research website update.</p><a class="button primary" href={withBase('/')}>Return to homepage ↗</a></div></section>
 </BaseLayout>

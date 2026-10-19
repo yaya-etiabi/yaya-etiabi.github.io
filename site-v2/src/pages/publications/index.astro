@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PublicationItem from '../../components/PublicationItem.astro';
 import { getCollection } from 'astro:content';
 import { site } from '../../lib/site';
+import { publicationsStructuredData } from '../../lib/seo';
 
 const publications = (await getCollection('publications')).sort(
   (a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title)
@@ -11,7 +12,7 @@ const reviewed = publications.filter(p => p.data.kind !== 'Preprint');
 const preprints = publications.filter(p => p.data.kind === 'Preprint');
 const years = [...new Set(reviewed.map(p => p.data.year))];
 ---
-<BaseLayout title="Publications" description="Peer-reviewed journal and conference publications, with preprints shown separately.">
+<BaseLayout title="Publications" description="Peer-reviewed articles, conference papers and preprints by Yaya Etiabi in machine learning and wireless systems." structuredData={publicationsStructuredData([...reviewed, ...preprints])}>
   <section class="page-hero">
     <div class="container">
       <div class="eyebrow">Research outputs</div>

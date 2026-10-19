@@ -3,10 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase, site } from '../../lib/site';
 import { Image } from 'astro:assets';
 import portrait from '../../assets/yaya-portrait-cutout.webp';
+import { profileStructuredData } from '../../lib/seo';
 ---
 <BaseLayout
   title="About"
   description="Yaya Etiabi's research background, academic experience, teaching, mentoring and scientific activities."
+  structuredData={profileStructuredData()}
 >
   <section class="page-hero about-hero">
     <div class="container about-hero-grid">

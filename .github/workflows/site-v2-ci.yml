@@ -32,6 +32,7 @@ jobs:
         run: |
           npm run build
           npm run test:links
+          npm run test:seo
           test -f dist/sitemap.xml
           grep -q 'https://yaya-etiabi.github.io/projects/locllm/' dist/sitemap.xml
           test -f dist/about.html
@@ -43,6 +44,7 @@ jobs:
         run: |
           npm run build
           npm run test:links
+          npm run test:seo
           grep -q 'noindex,nofollow' dist/index.html
           grep -q 'https://yaya-etiabi.github.io/' dist/index.html
           if grep -q 'href="https://yaya195.github.io/yaya-etiabi.github.io/' dist/index.html; then

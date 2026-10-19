@@ -5,7 +5,7 @@ import { join, resolve } from 'node:path';
 
 const root = resolve('dist');
 const official = 'https://yaya-etiabi.github.io';
-const preview = (process.env.BASE_PATH || '/').replace(/\\/$/, '') !== '';
+const preview = (process.env.BASE_PATH || '/').replace(/\/$/, '') !== '';
 const failures = [];
 const check = (condition, message) => { if (!condition) failures.push(message); };
 const html = file => readFileSync(join(root, file), 'utf8');
@@ -24,12 +24,12 @@ check(existsSync(join(root, 'portrait.webp')), 'Missing social image');
 
 if (existsSync(join(root, 'sitemap.xml'))) {
   const xml = html('sitemap.xml');
-  const published = [...xml.matchAll(/<loc>([^<]+)<\\/loc>/g)].map(match => match[1]);
+  const published = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
   const expected = urls.map(url => official + url);
   check(published.length === expected.length, 'Sitemap URL count does not match the main pages');
   check(new Set(published).size === published.length, 'Duplicate sitemap URLs');
   for (const url of expected) check(published.includes(url), 'Sitemap omits ' + url);
-  check(!/\\/(?:cv|resume|portfolio|publication)\\//.test(xml), 'Sitemap includes redirects');
+  check(!/\/(?:cv|resume|portfolio|publication)\//.test(xml), 'Sitemap includes redirects');
 }
 if (existsSync(join(root, 'robots.txt'))) {
   check(html('robots.txt').includes('Sitemap: ' + official + '/sitemap.xml'), 'Wrong robots.txt sitemap');
@@ -38,9 +38,9 @@ for (const route of urls) {
   const markup = html(route.slice(1) + 'index.html');
   const canonical = (markup.match(/<link rel="canonical" href="([^"]+)"/) || [])[1];
   const robotRule = (markup.match(/<meta name="robots" content="([^"]+)"/) || [])[1];
-  const title = (markup.match(/<title>([^<]+)<\\/title>/) || [])[1];
+  const title = (markup.match(/<title>([^<]+)<\/title>/) || [])[1];
   const description = (markup.match(/<meta name="description" content="([^"]+)"/) || [])[1];
-  const ldScripts = [...markup.matchAll(/<script[^>]*type="application\\/ld\\+json"[^>]*>([\\s\\S]*?)<\\/script>/g)];
+  const ldScripts = [...markup.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)];
   check(canonical === official + route, 'Wrong canonical at ' + route + ': ' + canonical);
   check(robotRule === (preview ? 'noindex,nofollow' : 'index,follow'), 'Wrong robots meta at ' + route);
   check(Boolean(title && description), 'Missing title/description at ' + route);
@@ -76,7 +76,7 @@ for (const path of ['cv/index.html', 'resume/index.html', 'portfolio/index.html'
   check(/noindex/.test(html(path)), 'Redirect must not be indexed: ' + path);
 }
 if (failures.length) {
-  console.error(failures.join('\\n'));
+  console.error(failures.join('\n'));
   process.exit(1);
 }
 console.log('SEO checks passed: ' + urls.length + ' pages, canonical tags, indexability, JSON-LD and sitemap.');

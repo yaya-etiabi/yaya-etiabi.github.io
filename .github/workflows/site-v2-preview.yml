@@ -1,12 +1,8 @@
-name: V2 fork preview (GitHub Pages)
+name: Legacy V2 preview (GitHub Pages Actions)
 
+# Direct Pages deployment on this fork currently fails with a Pages site
+# initialization 404. Retained for diagnosis, but not triggered on pushes.
 on:
-  push:
-    branches:
-      - refactor/research-website-v2
-    paths:
-      - 'site-v2/**'
-      - '.github/workflows/site-v2-preview.yml'
   workflow_dispatch:
 
 permissions:

@@ -1,0 +1,56 @@
+name: V2 generate gh-pages preview branch
+
+on:
+  push:
+    branches:
+      - refactor/research-website-v2
+    paths:
+      - 'site-v2/**'
+      - '.github/workflows/site-v2-branch-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v2-branch-preview
+  cancel-in-progress: false
+
+jobs:
+  publish-preview-files:
+    if: github.repository == 'Yaya195/yaya-etiabi.github.io'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate and verify static preview
+        working-directory: site-v2
+        env:
+          SITE_URL: https://Yaya195.github.io
+          BASE_PATH: /yaya-etiabi.github.io/
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+          npm run test:links
+          grep -q 'noindex,nofollow' dist/index.html
+      - name: Commit static site to fork-only gh-pages branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = "Yaya195/yaya-etiabi.github.io"
+          mkdir -p /tmp/research-v2-preview
+          cp -a site-v2/dist/. /tmp/research-v2-preview/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan gh-pages
+          git rm -rf --cached . >/dev/null || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a /tmp/research-v2-preview/. .
+          touch .nojekyll
+          git add -A
+          git commit -m "Preview: Astro V2 static build from ${GITHUB_SHA}"
+          git push --force origin HEAD:gh-pages

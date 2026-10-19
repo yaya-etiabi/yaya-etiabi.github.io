@@ -1,27 +1,36 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { withBase } from '../../lib/site';
+import { withBase, site } from '../../lib/site';
 ---
-<BaseLayout title="CV" description="Academic and research background of Yaya Etiabi.">
-  <section class="page-hero"><div class="container"><div class="eyebrow">Curriculum vitae</div><h1>Academic CV</h1><p class="lead">A brief overview of my academic training, research experience and technical background.</p></div></section>
-  <div class="container page-content">
-    <div class="detail-grid">
-      <div class="prose">
-        <h2>Education</h2>
-        <div class="timeline">
-          <div class="timeline-item"><div class="timeline-date">2025</div><h3>PhD · Computer &amp; Communication Sciences</h3><p>Mohammed VI Polytechnic University (UM6P). Thesis: Advanced Machine Learning Techniques for Collaborative and Privacy-Preserving Wireless Localization in IoT Networks.</p></div>
-          <div class="timeline-item"><div class="timeline-date">2020</div><h3>Engineering degree · Electrical Engineering</h3><p>Embedded Systems &amp; Telecommunications · Hassan II University.</p></div>
-        </div>
-        <h2>Research experience</h2>
-        <p><strong>Postdoctoral research, UQAM (2025–2026)</strong> · Integrated Sensing, Communication and Computation; edge intelligence.</p>
-        <p><strong>Doctoral research, UM6P (2020–2025)</strong> · Federated learning, meta-learning, distillation and wireless localization.</p>
-        <h2>Technical areas</h2>
-        <p>Python, C/C++, PyTorch, deep learning, transfer learning, federated learning, statistical estimation, neural networks and wireless system modeling.</p>
-        <h2>Teaching and scientific service</h2>
-        <p>Programming and machine learning instruction, research supervision, mentoring, reviewing and scientific outreach.</p>
-        <p class="feature-note"><strong>Document status:</strong> This is the validated-summary page for the site prototype. A downloadable PDF will be added only after checking that its content and dates are current.</p>
+<BaseLayout title="CV" description="Academic training, research experience, technical background and academic activities of Yaya Etiabi.">
+  <section class="page-hero"><div class="container"><div class="eyebrow">Curriculum vitae</div><h1>Academic CV</h1><p class="lead">An overview of my academic training, research appointments, technical background and teaching experience.</p></div></section>
+  <div class="container page-content"><div class="detail-grid">
+    <article class="prose">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-date">2025</div><h3>PhD in Computer Science · Mohammed VI Polytechnic University</h3><p>Thesis: Advanced Machine Learning Techniques for Collaborative and Privacy-Preserving Wireless Localization in IoT Networks.</p></div>
+        <div class="timeline-item"><div class="timeline-date">2020</div><h3>Engineering Degree in Electrical Engineering · Hassan II University</h3><p>Embedded systems and telecommunications.</p></div>
       </div>
-      <aside class="sidebar-panel"><h3>Research record</h3><p class="small">See the publications catalogue for peer-reviewed output or contact me for a complete academic CV.</p><a class="card-link" href={withBase('/publications/')}>Publications ↗</a><br/><a class="card-link" href={withBase('/contact/')}>Contact ↗</a></aside>
-    </div>
-  </div>
+      <h2>Research experience</h2>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-date">2025–2026</div><h3>Postdoctoral Researcher · UQAM</h3><p>AI-native wireless systems, Edge Intelligence and integrated sensing, communication and computation.</p></div>
+        <div class="timeline-item"><div class="timeline-date">2020–2025</div><h3>Doctoral Researcher · UM6P</h3><p>Federated learning, meta-learning, distillation and wireless indoor localization.</p></div>
+        <div class="timeline-item"><div class="timeline-date">2023</div><h3>Research Intern · ISEP, Paris</h3><p>Federated and meta-learning for adaptive wireless localization.</p></div>
+        <div class="timeline-item"><div class="timeline-date">2020</div><h3>Research Intern · UM6P</h3><p>Distributed IoT localization through algorithm development and numerical simulation.</p></div>
+      </div>
+      <h2>Technical background</h2>
+      <p>Python, C/C++, MATLAB, PyTorch and TensorFlow. Experience with neural networks, federated and meta-learning, transfer learning, statistical estimation, research software and wireless simulation.</p>
+      <h2>Teaching, mentoring and academic service</h2>
+      <p>Programming and machine learning instruction, supervision of undergraduate and master's-level research projects, peer review, mentoring and AI education.</p>
+      <p><a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach ↗</a> · <a href={withBase('/talks/')}>Talks &amp; Presentations ↗</a></p>
+      <h2>Publications and projects</h2>
+      <p>See the complete list of indexed publications and a selection of research projects for methods, evaluations and available resources.</p>
+      <p><a href={withBase('/publications/')}>Publications ↗</a> · <a href={withBase('/projects/')}>Research Projects ↗</a></p>
+    </article>
+    <aside class="sidebar-panel"><h3>Research profiles</h3>
+      <p class="small"><a href={site.scholar}>Google Scholar ↗</a></p>
+      <p class="small"><a href={site.orcid}>ORCID ↗</a></p>
+      <p class="small"><a href={withBase('/contact/')}>Contact ↗</a></p>
+    </aside>
+  </div></div>
 </BaseLayout>

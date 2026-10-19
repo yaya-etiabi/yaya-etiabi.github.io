@@ -1,24 +1,33 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { withBase } from '../../lib/site';
+import { withBase, site } from '../../lib/site';
 ---
-<BaseLayout title="About" description="Academic background, research experience, teaching, mentoring and scientific service.">
-  <section class="page-hero"><div class="container"><div class="eyebrow">About</div><h1>About me</h1><p class="lead">Researcher in machine learning and wireless systems, with a foundation in electrical engineering and experience across academic research, implementation, teaching and mentoring.</p></div></section>
-  <div class="container page-content">
-    <div class="detail-grid">
-      <article class="prose">
-        <h2>Background</h2>
-        <p>I hold a PhD in Computer and Communication Sciences from Mohammed VI Polytechnic University (UM6P), completed in 2025, and an engineering degree in Electrical Engineering with a specialization in embedded systems and telecommunications.</p>
-        <p>My doctoral research addressed collaborative and privacy-preserving wireless localization in IoT networks. In subsequent postdoctoral research at Université du Québec à Montréal (UQAM), my interests expanded toward integrated sensing, communication and computation and efficient intelligence at the edge.</p>
-        <h2>Research experience</h2>
-        <div class="timeline">
-          <div class="timeline-item"><div class="timeline-date">2025–2026</div><h3>Postdoctoral research · UQAM</h3><p>Intelligent wireless systems, ISCC and Edge Intelligence.</p></div>
-          <div class="timeline-item"><div class="timeline-date">2020–2025</div><h3>Doctoral research · UM6P</h3><p>Advanced machine learning for collaborative, adaptive and privacy-preserving wireless localization.</p></div>
-        </div>
-        <h2>Teaching and outreach</h2>
-        <p>In addition to my research, I have taught programming and machine learning, supervised student projects, and contributed to AI-literacy initiatives and academic service. I describe this work in more detail on the <a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach page</a>.</p>
-      </article>
-      <aside class="sidebar-panel"><h3>Academic profiles</h3><p class="small"><a href="https://scholar.google.ca/citations?user=S_lqw5EAAAAJ">Google Scholar ↗</a></p><p class="small"><a href="https://orcid.org/0000-0003-1269-5199">ORCID ↗</a></p><p class="small"><a href="https://github.com/Yaya195">GitHub ↗</a></p><p class="small"><a href={withBase('/cv/')}>Academic CV ↗</a></p><p class="small"><a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach ↗</a></p></aside>
-    </div>
-  </div>
+<BaseLayout title="About" description="Academic background and research experience of Yaya Etiabi in machine learning and wireless communications.">
+  <section class="page-hero"><div class="container"><div class="eyebrow">About</div><h1>About me</h1><p class="lead">I am a machine learning researcher with a PhD in Computer Science and a background in electrical engineering, embedded systems and telecommunications.</p></div></section>
+  <div class="container page-content"><div class="detail-grid">
+    <article class="prose">
+      <h2>Background</h2>
+      <p>I completed my PhD at Mohammed VI Polytechnic University (UM6P) in 2025. My doctoral research focused on machine learning for collaborative and privacy-preserving wireless localization in IoT networks, including federated learning, meta-learning and communication-efficient training.</p>
+      <p>My engineering background provides a foundation in wireless communications and embedded systems, which informs my work with radio measurements and learning algorithms.</p>
+      <h2>Research experience</h2>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-date">2025–2026</div><h3>Postdoctoral Researcher · Université du Québec à Montréal</h3><p>Research on AI-native wireless systems, ISCC and Edge Intelligence.</p></div>
+        <div class="timeline-item"><div class="timeline-date">2020–2025</div><h3>Doctoral Research · Mohammed VI Polytechnic University</h3><p>Collaborative, adaptive and communication-efficient machine learning for wireless localization.</p></div>
+        <div class="timeline-item"><div class="timeline-date">2023</div><h3>Research Internship · ISEP, Paris</h3><p>Federated and meta-learning for indoor localization and adaptation across environments.</p></div>
+      </div>
+      <h2>Research approach</h2>
+      <p>My work involves formulating research problems, designing and implementing learning methods, conducting experiments and evaluating results through quantitative analysis and comparison with established baselines.</p>
+      <p>Current research directions and individual studies are described on the <a href={withBase('/research/')}>Research page</a> and in the <a href={withBase('/projects/')}>project portfolio</a>.</p>
+      <h2>Teaching and academic activities</h2>
+      <p>Teaching, mentoring and supervising student research projects are also part of my academic experience. I contribute to AI education, scientific communities and peer review.</p>
+      <p><a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach ↗</a> · <a href={withBase('/talks/')}>Talks &amp; Presentations ↗</a></p>
+    </article>
+    <aside class="sidebar-panel"><h3>Academic profiles</h3>
+      <p class="small"><a href={site.scholar}>Google Scholar ↗</a></p>
+      <p class="small"><a href={site.orcid}>ORCID ↗</a></p>
+      <p class="small"><a href={site.github}>GitHub ↗</a></p>
+      <p class="small"><a href={withBase('/cv/')}>CV ↗</a></p>
+      <p class="small"><a href={withBase('/contact/')}>Contact ↗</a></p>
+    </aside>
+  </div></div>
 </BaseLayout>

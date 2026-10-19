@@ -1,0 +1,14 @@
+---
+import { withBase } from '../../lib/site';
+const dest = withBase('/sitemap.xml');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={'0; url=' + dest} />
+    <title>Sitemap moved | Yaya Etiabi</title>
+  </head>
+  <body><p>The sitemap is available at <a href={dest}>sitemap.xml</a>.</p></body>
+</html>

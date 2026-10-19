@@ -32,6 +32,10 @@ jobs:
         run: |
           npm run build
           npm run test:links
+          test -f dist/sitemap.xml
+          grep -q 'https://yaya-etiabi.github.io/projects/locllm/' dist/sitemap.xml
+          test -f dist/about.html
+          test -f dist/contact.html
       - name: Build fork preview under project subpath
         env:
           SITE_URL: https://Yaya195.github.io

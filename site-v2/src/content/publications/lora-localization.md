@@ -1,6 +1,6 @@
 ---
 title: "Spreading Factor Assisted LoRa Localization with Deep Reinforcement Learning"
-authors: ["Yaya Etiabi", "M. Jouhari", "A. Burg", "El Mehdi Amhoud"]
+authors: ["Yaya Etiabi", "Mohammed Jouhari", "Andreas Burg", "El Mehdi Amhoud"]
 year: 2023
 venue: "IEEE 97th Vehicular Technology Conference (VTC2023-Spring)"
 kind: "Conference"

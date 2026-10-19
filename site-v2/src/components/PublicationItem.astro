@@ -17,7 +17,7 @@ const {title,authors,year,venue,kind,doi,project} = Astro.props;
   <div class="pub-meta">{authors.join(', ')}</div>
   <div class="pub-meta"><em>{venue}</em> · {year} · {kind}</div>
   <div class="pub-links">
-    {doi && <a href={'https://doi.org/' + doi} target="_blank" rel="noopener noreferrer">DOI ↗</a>}
+    {doi && <a href={'https://doi.org/' + doi} target="_blank" rel="noopener noreferrer">{kind === 'Preprint' ? 'Preprint ↗' : 'DOI ↗'}</a>}
     {project && <a href={withBase('/projects/' + project + '/')}>Research project →</a>}
   </div>
 </li>

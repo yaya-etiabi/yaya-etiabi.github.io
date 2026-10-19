@@ -3,13 +3,47 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PublicationItem from '../../components/PublicationItem.astro';
 import { getCollection } from 'astro:content';
 import { site } from '../../lib/site';
-const publications = (await getCollection('publications')).sort((a,b)=>b.data.year-a.data.year || a.data.title.localeCompare(b.data.title));
-const years = [...new Set(publications.map(p=>p.data.year))];
+
+const publications = (await getCollection('publications')).sort(
+  (a, b) => b.data.year - a.data.year || a.data.title.localeCompare(b.data.title)
+);
+const reviewed = publications.filter(p => p.data.kind !== 'Preprint');
+const preprints = publications.filter(p => p.data.kind === 'Preprint');
+const years = [...new Set(reviewed.map(p => p.data.year))];
 ---
-<BaseLayout title="Publications" description="Journal articles and conference papers by Yaya Etiabi, with publisher DOI links.">
-  <section class="page-hero"><div class="container"><div class="eyebrow">Research output</div><h1>Publications</h1><p class="lead">Journal articles and conference papers, organized by publication year. DOI links lead to the published records.</p></div></section>
+<BaseLayout title="Publications" description="Peer-reviewed journal and conference publications, with preprints shown separately.">
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Research outputs</div>
+      <h1>Publications</h1>
+      <p class="lead">
+        Peer-reviewed journal articles and conference papers, with links to the published records.
+        Public preprints are listed separately.
+      </p>
+    </div>
+  </section>
   <div class="container page-content">
-    <p class="muted">For citation information and additional indexed records, see my <a href={site.scholar}>Google Scholar profile ↗</a>.</p>
-    {years.map(year => <section class="section-tight"><div class="eyebrow section-label">{year}</div><ul class="pub-list">{publications.filter(p=>p.data.year===year).map(p=><PublicationItem {...p.data}/>)}</ul></section>)}
+    <p class="muted">
+      For citation information and additional indexed records, see my
+      <a href={site.scholar} target="_blank" rel="noopener noreferrer">Google Scholar profile ↗</a>.
+    </p>
+    {years.map(year =>
+      <section class="section-tight">
+        <div class="eyebrow section-label">{year}</div>
+        <ul class="pub-list">
+          {reviewed.filter(p => p.data.year === year).map(p => <PublicationItem {...p.data} />)}
+        </ul>
+      </section>
+    )}
+    {preprints.length > 0 &&
+      <section class="section-tight">
+        <div class="eyebrow section-label">Public manuscripts</div>
+        <h2>Preprints</h2>
+        <p class="muted">Manuscripts available publicly but not listed here as peer-reviewed journal or conference publications.</p>
+        <ul class="pub-list">
+          {preprints.map(p => <PublicationItem {...p.data} />)}
+        </ul>
+      </section>
+    }
   </div>
 </BaseLayout>

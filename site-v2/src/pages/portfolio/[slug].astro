@@ -1,6 +1,7 @@
 ---
 import {withBase} from '../../lib/site';
-const mapping = {
+export function getStaticPaths() {
+  const mapping = {
   "3mt-ieee-icc-2023": "/talks/#3mt-ieee-icc-2023",
   "ai-training-webinar": "/teaching-outreach/#ai-training-webinar",
   "aptom-panel-ai": "/talks/#aptom-panel-ai",
@@ -12,7 +13,6 @@ const mapping = {
   "ieee-reviewer-tpc-member": "/teaching-outreach/#ieee-reviewer-tpc-member",
   "ieee-vtc-2023": "/talks/#2023-01-01-lora-localization-drl"
 };
-export function getStaticPaths() {
   return Object.entries(mapping).map(([slug,destination])=>({params:{slug},props:{destination}}));
 }
 const {destination} = Astro.props;

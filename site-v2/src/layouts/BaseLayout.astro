@@ -36,7 +36,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <a class="skip-link" href="#content">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="wordmark" href={withBase('/')} aria-label="Yaya Etiabi — homepage">YE<span class="wordmark-dot">.</span><span class="wordmark-name">Yaya Etiabi</span></a>
+        <a class="wordmark" href={withBase('/')} aria-label="Yaya Etiabi — homepage">Yaya Etiabi</a>
         <nav aria-label="Primary navigation" class="primary-nav">
           {nav.map((item) => (
             <a href={withBase(item.href)} aria-current={current.includes(item.href) ? 'page' : undefined}>{item.label}</a>

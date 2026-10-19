@@ -8,13 +8,10 @@ interface Props {
   status: string;
   period: string;
   tags: string[];
-  index?: number;
 }
-const { slug, title, summary, status, period, tags, index=0 } = Astro.props;
-const monogram = ['ML','RF','AI','SL','OS','IS'][index % 6];
+const { slug, title, summary, status, period, tags } = Astro.props;
 ---
 <article class="card project-card">
-  <div class="project-visual" aria-hidden="true"><span>{monogram}</span></div>
   <div class="project-card-body">
     <div class="meta-row"><span class="status">{status}</span><span>{period}</span></div>
     <h3>{title}</h3>

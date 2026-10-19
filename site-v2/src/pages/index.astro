@@ -4,6 +4,8 @@ import ProjectCard from '../components/ProjectCard.astro';
 import PublicationItem from '../components/PublicationItem.astro';
 import { getCollection } from 'astro:content';
 import { withBase, site } from '../lib/site';
+import { Image } from 'astro:assets';
+import portrait from '../assets/profile_img.jpg';
 
 const projects = (await getCollection('projects')).sort((a,b) => a.data.sortOrder - b.data.sortOrder);
 const featured = projects.filter(p=>p.data.featured).slice(0,3);
@@ -11,26 +13,34 @@ const publications = (await getCollection('publications')).filter(p=>p.data.feat
 const areas = [
   {number:'01', title:'Collaborative & Privacy-Preserving ML',description:'Distributed learning, adaptation and communication-efficient knowledge exchange in wireless networks.'},
   {number:'02',title:'Wireless Sensing & Localization',description:'Learning from radio measurements and sensor observations for localization and environmental understanding.'},
-  {number:'03',title:'Edge Intelligence & ISCC',description:'Joint consideration of sensing, communication and computation for intelligence at the network edge.'},
-];
----
-<BaseLayout>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">Machine Learning · Wireless Systems</div>
-        <h1>Intelligence at the wireless edge.</h1>
-        <p class="lead">I am Yaya Etiabi, a machine learning researcher working at the intersection of intelligent wireless systems, collaborative learning, sensing, and localization.</p>
-        <p class="muted">My work connects learning algorithms with the practical constraints of communication, sensing and computation in connected environments.</p>
-        <div class="button-row">
-          <a class="button primary" href={withBase('/research/')}>Explore my research <span aria-hidden="true">↗</span></a>
-          <a class="button secondary" href={withBase('/projects/')}>View research projects</a>
+  {number:'03',title:'Edge Intelligence & ISCC',description:'Joint consideration of sensing, com  <section class="hero personal-hero">
+    <div class="container hero-grid personal-hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Research · Machine Learning · Wireless Systems</div>
+        <h1>Yaya Etiabi <span class="hero-degree">PhD</span></h1>
+        <p class="hero-role">Machine Learning Researcher</p>
+        <p class="lead">I work on machine learning methods for wireless sensing, localization and edge intelligence, with an emphasis on collaborative learning and resource-constrained systems.</p>
+        <p class="muted">My research spans federated meta-learning and distillation, radio-based estimation and localization, and the co-design of sensing, communication and computation.</p>
+        <div class="hero-links" aria-label="Explore this research website">
+          <a href={withBase('/research/')}>Research <span aria-hidden="true">↗</span></a>
+          <a href={withBase('/publications/')}>Publications <span aria-hidden="true">↗</span></a>
+          <a href={withBase('/cv/')}>CV <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-profiles">
+          <a href={site.scholar}>Google Scholar</a>
+          <span aria-hidden="true">·</span>
+          <a href={site.github}>GitHub</a>
+          <span aria-hidden="true">·</span>
+          <a href={site.linkedin}>LinkedIn</a>
         </div>
       </div>
-      <div class="hero-art" role="img" aria-label="Abstract wireless-edge research motif with distributed nodes and concentric radio waves">
-        <div class="signal-node a"></div><div class="signal-node b"></div><div class="signal-node c"></div><div class="signal-node d"></div>
-        <div class="diagram-center">ML</div>
-        <span class="diagram-label">SENSING · LEARNING · COMPUTING</span>
+      <figure class="hero-portrait">
+        <Image src={portrait} alt="Portrait of Yaya Etiabi" width={480} format="webp" quality={80} loading="eager" fetchpriority="high" />
+      </figure>
+    </div>
+  </section>
+
+gram-label">SENSING · LEARNING · COMPUTING</span>
       </div>
     </div>
   </section>

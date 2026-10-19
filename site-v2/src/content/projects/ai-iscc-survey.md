@@ -1,6 +1,6 @@
 ---
 title: "AI–ISCC Survey: AI-Aided and AI-Oriented Design"
-summary: "A survey that distinguishes AI-aided and AI-oriented ISCC and examines the joint design of sensing, communication and computation."
+summary: "A survey of AI-aided and AI-oriented ISCC research, examining the co-design of sensing, communication, and computation."
 status: "Under Review"
 period: "2026"
 tags: ["ISCC", "AI-aided and AI-oriented design", "Survey"]

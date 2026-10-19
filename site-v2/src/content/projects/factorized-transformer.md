@@ -1,6 +1,6 @@
 ---
 title: "Factorized Transformer for Multipath Estimation"
-summary: "Joint detection and estimation of multipath delay, angle of arrival and angle of departure from MIMO-OFDM radio measurements."
+summary: "Joint estimation of multipath delay, angle of arrival and angle of departure from MIMO-OFDM observations."
 status: "Under Review"
 period: "2026"
 tags: ["Transformers", "MIMO-OFDM", "Multipath estimation"]

@@ -1,6 +1,6 @@
 ---
 title: "IRSA Over Spreading Factors for Spatio-Temporal SIC in Scalable LoRaWAN IoT Networks"
-authors: ["Nadjib Benserir", "Yaya Etiabi", "Essaid Sabir", "El Mehdi Amhoud", "Halima Elbiaze", "Abdoulaye Baniré Diallo"]
+authors: ["Nadjib Benserir","Yaya Etiabi","Essaid Sabir","Elmehdi Amhoud","Halima Elbiaze","Abdoulaye Baniré Diallo"]
 year: 2025
 venue: "IEEE Symposium on Computers and Communications (ISCC), pp. 1–6"
 kind: "Conference"

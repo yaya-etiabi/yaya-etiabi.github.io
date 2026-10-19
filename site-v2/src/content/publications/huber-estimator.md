@@ -2,7 +2,7 @@
 title: "Huber Estimator and Statistical Bootstrap Based Light-Weight Localization for IoT Systems"
 authors: ["Yaya Etiabi", "El Mehdi Amhoud", "Essaid Sabir"]
 year: 2021
-venue: "International Conference on Ubiquitous Networking (UNet)"
+venue: "International Symposium on Ubiquitous Networking (UNet), pp. 79–92"
 kind: "Conference"
 doi: "10.1007/978-3-030-86356-2_7"
 featured: false

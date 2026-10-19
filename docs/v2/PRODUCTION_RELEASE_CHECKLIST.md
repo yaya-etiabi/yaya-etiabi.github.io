@@ -31,9 +31,17 @@ The canonical `yaya-etiabi/yaya-etiabi.github.io` `master` branch remains unchan
 - The former **seven `/posts/<slug>/` blog entries are not included in V2**, because there is no approval to migrate them. Their links will return 404 unless addressed separately. This is a launch decision, not an unnoticed omission.
 - Other low-value legacy pages (including dummy teaching entries and deprecated non-menu routes) are intentionally not migrated; check whether externally used links need exceptions.
 
+## Draft pull request (upstream organization authorization required)
+
+The prepared branch is ahead of official `master` with no divergence. GitHub comparison:
+
+https://github.com/yaya-etiabi/yaya-etiabi.github.io/compare/master...Yaya195:refactor/research-website-v2
+
+Open **Create pull request**, mark it **Draft**, and keep it unmerged until content and deployment approval. Alternatively, grant the GitHub connection permission to create pull requests in the organization and retry. Merely opening this draft does not deploy the V2.
+
 ## Release action (requires explicit approval)
 
-1. Use the prepared fork-to-upstream **draft PR**: `Yaya195:refactor/research-website-v2` into official `master`.
+1. Open a **draft PR** in the GitHub web UI from `Yaya195:refactor/research-website-v2` into official `master` using the compare link below. The connected GitHub integration could not create the organization PR (403), so **no upstream PR has been opened yet**.
 2. Check that GitHub Pages is configured to use **GitHub Actions**. Do not change the Pages source based on guesswork.
 3. Recheck `master`, CI runs and PR file changes.
 4. Merge the approved PR. Its merge will trigger the **single Astro** Pages deployment to the same canonical URL.

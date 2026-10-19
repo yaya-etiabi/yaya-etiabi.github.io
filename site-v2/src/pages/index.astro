@@ -5,7 +5,7 @@ import PublicationItem from '../components/PublicationItem.astro';
 import { getCollection } from 'astro:content';
 import { withBase, site } from '../lib/site';
 import { Image } from 'astro:assets';
-import portrait from '../assets/profile_img.jpg';
+import portrait from '../assets/yaya-portrait-cutout.webp';
 
 const projects = (await getCollection('projects')).sort((a,b) => a.data.sortOrder - b.data.sortOrder);
 const featured = projects.filter(p=>p.data.featured).slice(0,3);

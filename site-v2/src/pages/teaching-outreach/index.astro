@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/site';
+---
+<BaseLayout title="Teaching & Outreach" description="Teaching, student research supervision, AI literacy and academic service by Yaya Etiabi.">
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Academic &amp; community activities</div>
+      <h1>Teaching, Mentoring &amp; Outreach</h1>
+      <p class="lead">Alongside research, I have contributed to programming and machine learning education, student project supervision, and AI-literacy initiatives.</p>
+    </div>
+  </section>
+
+  <div class="container page-content">
+    <div class="detail-grid">
+      <article class="prose">
+        <h2>Teaching</h2>
+        <p>My teaching experience includes practical programming instruction and introductory and applied machine learning sessions. I have worked with students through laboratory exercises, tutorials and classroom teaching.</p>
+        <ul>
+          <li><strong>C programming:</strong> laboratory sessions and practical programming exercises.</li>
+          <li><strong>Machine learning:</strong> teaching and tutoring, including recurring classroom sessions.</li>
+          <li><strong>Introduction to AI with Python:</strong> introductory sessions connecting Python programming with AI concepts.</li>
+        </ul>
+
+        <h2>Mentoring and research supervision</h2>
+        <p>I have supervised two undergraduate final-year projects and contributed to the supervision of master's-level research projects. My role has included guiding students as they develop research questions, implement methods and evaluate their results.</p>
+
+        <h2>Outreach and AI literacy</h2>
+        <p>My outreach activities focus on making AI concepts and methods more accessible through learning initiatives, knowledge sharing and participation in research and technology communities.</p>
+
+        <h2>Academic service</h2>
+        <p>I have also contributed to the research community through peer review and related academic activities.</p>
+      </article>
+
+      <aside class="sidebar-panel">
+        <h3>Explore my background</h3>
+        <p class="small">For academic training and research experience, see the About page. The CV provides a broader overview of my activities.</p>
+        <p class="small"><a href={withBase('/about/')}>About me ↗</a></p>
+        <p class="small"><a href={withBase('/cv/')}>Academic CV ↗</a></p>
+        <p class="small"><a href={withBase('/contact/')}>Contact ↗</a></p>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

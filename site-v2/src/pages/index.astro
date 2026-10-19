@@ -67,7 +67,36 @@ const areas = [
 
   <section class="section soft-section">
     <div class="container">
-      <div class="section-head"><div><div class="eyebrow section-label">Beyond research</div><h2>Engineering, teaching, and scientific service</h2><p>My background spans electrical engineering, research software and experimental machine learning, alongside teaching, mentoring and peer review.</p></div><a class="button secondary" href={withBase('/about/')}>About my background ↗</a></div>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow section-label">Academic &amp; community activities</div>
+          <h2>Teaching, Mentoring &amp; Outreach</h2>
+        </div>
+        <a class="link-arrow" href={withBase('/teaching-outreach/')}>Explore these activities ↗</a>
+      </div>
+      <div class="grid-3 activity-grid">
+        <article class="card activity-card">
+          <svg class="activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 7c-2-1.6-5-2.2-9-1.5v13c4-.7 7-.1 9 1.5 2-1.6 5-2.2 9-1.5v-13c-4-.7-7-.1-9 1.5Z" /><path d="M12 7v13" />
+          </svg>
+          <h3>Teaching</h3>
+          <p>Programming, Python and machine learning courses and practical sessions.</p>
+        </article>
+        <article class="card activity-card">
+          <svg class="activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m2 9 10-5 10 5-10 5L2 9Z" /><path d="M6 11v5c3 2.5 9 2.5 12 0v-5" /><path d="M22 9v7" />
+          </svg>
+          <h3>Mentoring</h3>
+          <p>Supervision of undergraduate and master's-level research projects.</p>
+        </article>
+        <article class="card activity-card">
+          <svg class="activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="8" r="3" /><path d="M2.5 20v-2a6.5 6.5 0 0 1 13 0v2M17 5.5a3 3 0 0 1 0 5.5M18 14a5.3 5.3 0 0 1 3.5 5v1" />
+          </svg>
+          <h3>Outreach</h3>
+          <p>AI literacy, knowledge sharing and community learning initiatives.</p>
+        </article>
+      </div>
     </div>
   </section>
 </BaseLayout>

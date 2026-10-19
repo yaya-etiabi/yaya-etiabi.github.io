@@ -1,0 +1,41 @@
+name: V2 release lockfile preparation
+
+on:
+  push:
+    branches:
+      - refactor/research-website-v2
+    paths:
+      - '.github/workflows/site-v2-lockfile.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  generate-lock:
+    if: github.repository == 'Yaya195/yaya-etiabi.github.io'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site-v2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Produce deterministic npm dependency lockfile
+        run: npm install --package-lock-only --no-audit --no-fund
+      - name: Verify locked install and canonical build
+        env:
+          SITE_URL: https://yaya-etiabi.github.io
+          BASE_PATH: /
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+          npm run test:links
+          npm run test:seo
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v2-release-package-lock
+          path: site-v2/package-lock.json
+          if-no-files-found: error
+          retention-days: 7

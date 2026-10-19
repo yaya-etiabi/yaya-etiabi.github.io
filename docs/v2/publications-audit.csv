@@ -1,0 +1,9 @@
+legacy_file,year,stored_title,stored_doi,verification_status,action
+2020-01-01-distributed-collaborative-localization.md,2020,"A distributed and collaborative localization algorithm for internet of things environments",10.1145/3428690.3429161,unverified,"verify metadata, preserve permalink"
+2021-01-01-Huber-Estimator.md,2021,"Huber Estimator and Statistical Bootstrap Based Light-Weight Localization for IoT Systems",10.1007/978-3-030-86356-2_7,unverified,"verify metadata, preserve permalink"
+2023-01-01-FedCTI-Federated-Learning.md,2023,"FedCTI: Federated Learning and Cyber Threat Intelligence on the Edge for secure IoT Networks",10.1145/3627050.3627064,unverified,"verify metadata, preserve permalink"
+2023-01-01-Federated-Learning-Hierarchical.md,2023,"Federated Learning based Hierarchical 3D Indoor Localization",10.1109/WCNC55385.2023.10118848,unverified,"verify metadata, preserve permalink"
+2023-01-01-Spreading-factor-LoRa.md,2023,"Spreading factor assisted LoRa localization with deep reinforcement learning",10.1109/VTC2023-Spring.2023.10129758,unverified,"verify metadata, preserve permalink"
+2024-01-01-FeMLoc-Federated-Meta-Learning.md,2024,"FeMLoc: Federated Meta-Learning for Adaptive Wireless Indoor Localization Tasks in IoT Networks",10.1109/JIOT.2024.3440175,unverified,"verify metadata, preserve permalink"
+2024-01-01-Federated-distillation-for-localization.md,2024,"Federated distillation for communication-efficient collaborative indoor localization",10.1016/j.eswa.2024.119793,known_mismatch,"candidate correct title: Federated Distillation Based Indoor Localization for IoT Networks; DOI 10.1109/JSEN.2024.3357798; verify publisher record"
+2024-01-01-Unified-Deep-Transfer-Learning.md,2024,"A Unified Deep Transfer Learning Model for Accurate IoT Localization in Diverse Environments",10.1109/PIMRC59610.2024.10817295,unverified,"verify metadata, preserve permalink"

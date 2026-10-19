@@ -52,6 +52,44 @@ const talks = [
         <a class="link-arrow" href={'https://doi.org/' + talk.doi} target="_blank" rel="noopener noreferrer">Related publication ↗</a>
       </article>)}
     </div>
+    <section class="section-tight" aria-labelledby="presentations-recognition">
+      <div class="eyebrow section-label">Research communication</div>
+      <h2 id="presentations-recognition">Presentations &amp; recognition</h2>
+      <div class="grid-2">
+        <article class="card highlight-card" id="3mt-ieee-icc-2023">
+          <img src={withBase('/media/icc-3mt.jpg')} alt="Three Minute Thesis event at IEEE ICC" loading="lazy" decoding="async" />
+          <div class="kicker">IEEE ICC 2023 · Rome, Italy</div>
+          <h3>Three Minute Thesis (3MT) Finalist</h3>
+          <p>Finalist in the IEEE ComSoc 3MT competition, presenting doctoral research for a broad technical audience in a three-minute format.</p>
+        </article>
+        <article class="card highlight-card" id="doctoral-days-um6p">
+          <img src={withBase('/media/um6p-doctoral-days.jpg')} alt="Presentation at UM6P Doctoral Days" loading="lazy" decoding="async" />
+          <div class="kicker">UM6P · Doctoral Days</div>
+          <h3>Best Oral Presenter</h3>
+          <p>Oral and poster presentations on machine learning for indoor localization, including work on federated learning. Awarded Best Oral Presenter.</p>
+        </article>
+        <article class="card highlight-card" id="momi-event-inria">
+          <img src={withBase('/media/inria-momi-poster.jpeg')} alt="Poster presentation at the MOMI event" loading="lazy" decoding="async" />
+          <div class="kicker">MOMI · Inria, Université Côte d'Azur</div>
+          <h3>Best Poster Presentation</h3>
+          <p>Presented research on federated learning for indoor localization and received the Best Poster Presentation award.</p>
+        </article>
+        <article class="card highlight-card" id="scientific-day-at-isep">
+          <img src={withBase('/media/isep-scientific-day.jpg')} alt="Research presentation during a scientific day at ISEP" loading="lazy" decoding="async" />
+          <div class="kicker">ISEP · Paris, France</div>
+          <h3>Scientific Day research talk</h3>
+          <p>Presented research on indoor localization in IoT networks at a scientific day organized by ISEP's IEEE Student Branch.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section-tight" aria-labelledby="panels">
+      <div class="eyebrow section-label">Public discussions</div>
+      <h2 id="panels">Panels &amp; forums</h2>
+      <div class="timeline">
+        <div class="timeline-item" id="aptom-panel-ai"><h3>Panelist · APTOM</h3><p><strong>Artificial Intelligence in the Professional World: Opportunities and Challenges.</strong> Discussed the use of AI in professional contexts at an event hosted by the Association of Professionals of Togo in Morocco.</p></div>
+        <div class="timeline-item" id="the-arc-nexus-forum"><h3>Panelist · THE ARC NEXUS Forum</h3><p><strong>Linking research and development in Africa.</strong> Contributed perspectives on connectivity and AI in a discussion of research and development challenges.</p></div>
+      </div>
+    </section>
     <p class="note" style="margin-top:28px">For teaching, mentoring and other academic activities, see <a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach</a>.</p>
   </div>
 </BaseLayout>

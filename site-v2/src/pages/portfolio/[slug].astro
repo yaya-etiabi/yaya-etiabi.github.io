@@ -1,0 +1,21 @@
+---
+import {withBase} from '../../lib/site';
+const mapping = {
+  "3mt-ieee-icc-2023": "/talks/#3mt-ieee-icc-2023",
+  "ai-training-webinar": "/teaching-outreach/#ai-training-webinar",
+  "aptom-panel-ai": "/talks/#aptom-panel-ai",
+  "ml-class-um6p": "/teaching-outreach/#ml-class-um6p",
+  "doctoral-days-um6p": "/talks/#doctoral-days-um6p",
+  "momi-event-inria": "/talks/#momi-event-inria",
+  "scientific-day-at-isep": "/talks/#scientific-day-at-isep",
+  "the-arc-nexus-forum": "/talks/#the-arc-nexus-forum",
+  "ieee-reviewer-tpc-member": "/teaching-outreach/#ieee-reviewer-tpc-member",
+  "ieee-vtc-2023": "/talks/#2023-01-01-lora-localization-drl"
+};
+export function getStaticPaths() {
+  return Object.entries(mapping).map(([slug,destination])=>({params:{slug},props:{destination}}));
+}
+const {destination} = Astro.props;
+const redirectTo = withBase(destination);
+---
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="noindex"/><meta http-equiv="refresh" content={'0; url=' + redirectTo}/><title>Content moved | Yaya Etiabi</title></head><body><p>Content moved to <a href={redirectTo}>the new site</a>.</p></body></html>

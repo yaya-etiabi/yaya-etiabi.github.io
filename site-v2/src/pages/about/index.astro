@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase, site } from '../../lib/site';
+import { Image } from 'astro:assets';
+import portrait from '../../assets/yaya-portrait-cutout.webp';
+import { profileStructuredData } from '../../lib/seo';
+---
+<BaseLayout
+  title="About"
+  description="Yaya Etiabi's research background, academic experience, teaching, mentoring and scientific activities."
+  structuredData={profileStructuredData()}
+>
+  <section class="page-hero about-hero">
+    <div class="container about-hero-grid">
+      <div class="about-hero-copy">
+        <div class="eyebrow">Background &amp; interests</div>
+        <h1>About me</h1>
+        <p class="lead">
+          I am a researcher working at the intersection of machine learning and wireless communications.
+          I hold a PhD in Computer Science and an engineering degree in Electrical Engineering,
+          with a specialization in embedded systems and telecommunications.
+        </p>
+      </div>
+      <figure class="about-hero-portrait">
+        <Image
+          src={portrait}
+          alt="Portrait of Yaya Etiabi"
+          width={480}
+          format="webp"
+          quality={80}
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <div class="container page-content">
+    <div class="detail-grid">
+      <article class="prose">
+        <h2>Academic and research background</h2>
+        <p>
+          My research began with distributed localization methods for Internet of Things (IoT)
+          networks. During my PhD at Mohammed VI Polytechnic University (UM6P), completed in
+          2025, I focused on machine learning for collaborative and privacy-preserving wireless
+          localization. This work included federated learning, meta-learning and federated
+          distillation methods for adapting localization models to different environments and
+          reducing the communication required for collaborative training. I also pursued
+          related research during an internship at ISEP in Paris.
+        </p>
+        <p>
+          My postdoctoral research at Université du Québec à Montréal (UQAM) in 2025–2026
+          broadened this work toward AI-native wireless systems and Edge Intelligence.
+          I am particularly interested in the joint design of sensing, communication and
+          computation for learning and inference, as well as radio-based sensing and
+          localization. These directions build on my earlier research while addressing
+          different questions at the intersection of AI and wireless systems.
+        </p>
+
+        <h2>Research approach</h2>
+        <p>
+          I work across the research process, from defining a problem and developing a
+          method to implementing experiments and assessing the results. My work draws
+          on wireless-system simulations and experimental datasets, with evaluations
+          grounded in quantitative comparisons, including accuracy, adaptation,
+          communication overhead and computational cost where relevant.
+          The <a href={withBase('/research/')}>Research</a>,
+          <a href={withBase('/projects/')}>Projects</a> and
+          <a href={withBase('/publications/')}>Publications</a> pages provide the
+          technical details and research outputs.
+        </p>
+
+        <h2>Teaching and academic contribution</h2>
+        <p>
+          Teaching, mentoring and student research supervision are part of my academic
+          experience. I have contributed to programming and machine learning education
+          and guided student research from the development of research questions through
+          implementation, evaluation and presentation of results.
+        </p>
+        <p>
+          I also contribute to academic peer review and conference technical program
+          activities. More about this work is available on the
+          <a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach page</a>.
+        </p>
+
+        <h2>Scientific communication</h2>
+        <p>
+          I have presented research at international conferences and academic events,
+          including scientific communication competitions. I was a finalist in the
+          IEEE ComSoc Three Minute Thesis competition at IEEE ICC 2023 and received
+          presentation awards at UM6P Doctoral Days and a MOMI event at Inria.
+          The <a href={withBase('/talks/')}>Talks &amp; Presentations page</a>
+          documents these activities.
+        </p>
+
+        <h2>Community engagement &amp; personal interests</h2>
+        <p>
+          I am a founding member and Vice President of the International Network
+          of Burkinabè Researchers (INBR). I also serve as Director of Scientific
+          and Thematic Content at L'AURA.
+        </p>
+
+        <div class="activity-feature" id="half-marathons">
+          <img
+            src={withBase('/media/half-marathon.jpg')}
+            alt="At a half-marathon event"
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <p>I also enjoy distance running and have participated in two half-marathons.</p>
+          </div>
+        </div>
+      </article>
+
+      <aside class="sidebar-panel" aria-label="Explore profile and related work">
+        <h3>Explore my work</h3>
+        <p class="small"><a href={withBase('/research/')}>Research directions ↗</a></p>
+        <p class="small"><a href={withBase('/projects/')}>Research projects ↗</a></p>
+        <p class="small"><a href={withBase('/publications/')}>Publications ↗</a></p>
+        <p class="small"><a href={withBase('/talks/')}>Talks &amp; Presentations ↗</a></p>
+        <p class="small"><a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach ↗</a></p>
+        <div class="sidebar-divider" aria-hidden="true"></div>
+        <h3>Academic profiles</h3>
+        <p class="small"><a href={site.scholar} target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></p>
+        <p class="small"><a href={site.orcid} target="_blank" rel="noopener noreferrer">ORCID ↗</a></p>
+        <p class="small"><a href={site.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a></p>
+        <p class="small"><a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></p>
+        <p class="small"><a href={withBase('/contact/')}>Contact ↗</a></p>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

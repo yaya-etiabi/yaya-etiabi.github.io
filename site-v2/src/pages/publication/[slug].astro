@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import { withBase } from '../../lib/site';
+
+// Preserve legacy Jekyll URLs with static HTML redirect pages.
+export async function getStaticPaths() {
+  const papers = await getCollection('publications');
+  return papers.filter(p=>p.data.legacySlug).map(p=>({
+    params:{slug:p.data.legacySlug},
+    props:{title:p.data.title}
+  }));
+}
+const {title} = Astro.props;
+const destination = withBase('/publications/');
+---
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="noindex"/><meta http-equiv="refresh" content={'0; url=' + destination}/><title>Publication moved | Yaya Etiabi</title></head>
+<body><main><h1>Publication moved</h1><p>The record for <strong>{title}</strong> is now listed in the <a href={destination}>publications catalogue</a>.</p></main></body>
+</html>

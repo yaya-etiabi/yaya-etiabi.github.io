@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+import { site, withBase } from '../lib/site';
+import { officialOrigin, websiteId } from '../lib/seo';
+
+interface Props {
+  title?: string;
+  description?: string;
+  structuredData?: Record<string, unknown>;
+  noindex?: boolean;
+}
+
+const { title = site.heading, description = site.description, structuredData, noindex = false } = Astro.props;
+const nav = [
+  { label: 'Research', href: '/research/' },
+  { label: 'Projects', href: '/projects/' },
+  { label: 'Publications', href: '/publications/' },
+  { label: 'Teaching & Outreach', href: '/teaching-outreach/' },
+  { label: 'Talks', href: '/talks/' },
+  { label: 'About', href: '/about/' },
+];
+const current = Astro.url.pathname;
+const rootPath = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
+const preview = rootPath.length > 0;
+// Preview pages live under a project subpath. Their canonical URLs must instead
+// refer to the clean paths reserved for the official root-domain site.
+const canonicalPath = preview && (current === rootPath || current.startsWith(rootPath + '/'))
+  ? current.slice(rootPath.length) || '/'
+  : current;
+const canonical = new URL(canonicalPath, preview ? officialOrigin : Astro.site).href;
+const pageTitle = title === site.heading ? title : title + ' | ' + site.name;
+const schema = structuredData ?? {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': canonical + '#webpage',
+  url: canonical,
+  name: pageTitle,
+  description,
+  inLanguage: 'en',
+  isPartOf: { '@id': websiteId },
+};
+const jsonLd = JSON.stringify(schema).replace(/</g, '\\u003c');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8faf9" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Yaya Etiabi" />
+    <meta name="robots" content={preview ? 'noindex,nofollow' : noindex ? 'noindex,follow' : 'index,follow'} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={officialOrigin + '/portrait.webp'} />
+    <meta property="og:image:alt" content="Portrait of Yaya Etiabi" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" is:inline set:html={jsonLd} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="wordmark" href={withBase('/')} aria-label="Yaya Etiabi — homepage">Yaya Etiabi</a>
+        <nav aria-label="Primary navigation" class="primary-nav">
+          {nav.map((item) => (
+            <a href={withBase(item.href)} aria-current={current.startsWith(withBase(item.href)) ? 'page' : undefined}>{item.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main id="content"><slot /></main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div><span class="footer-name">Yaya Etiabi</span><p>Research · Engineering · Knowledge sharing</p></div>
+        <div class="footer-links">
+          <a href={site.github} rel="me">GitHub</a>
+          <a href={site.scholar} rel="me">Google Scholar</a>
+          <a href={site.linkedin} rel="me">LinkedIn</a>
+          <a href={withBase('/contact/')}>Contact</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">© {new Date().getFullYear()} Yaya Etiabi. Built with Astro. Hosted on GitHub Pages.</div>
+    </footer>
+  </body>
+</html>

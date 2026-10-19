@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/site';
+---
+<BaseLayout
+  title="Teaching & Outreach"
+  description="Teaching, research supervision, AI education, community engagement and academic service by Yaya Etiabi."
+>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Teaching &amp; engagement</div>
+      <h1>Teaching &amp; Outreach</h1>
+      <p class="lead">
+        I have taught programming and machine learning, supervised research projects,
+        facilitated AI learning programs, and contributed to academic peer review
+        and public discussions.
+      </p>
+    </div>
+  </section>
+
+  <div class="container page-content">
+    <div class="detail-grid">
+      <article class="prose">
+        <h2>Teaching and training</h2>
+        <p>
+          I have taught and tutored programming and machine learning through classes,
+          laboratory sessions and introductory workshops. My instruction combines
+          core concepts with implementation and practical exercises.
+        </p>
+        <ul>
+          <li><strong>C programming:</strong> co-supervised laboratory sessions focused on writing, testing and debugging programs.</li>
+          <li><strong>Machine learning:</strong> taught classes and tutorials on learning algorithms, model development and evaluation.</li>
+          <li><strong>Introduction to AI with Python:</strong> delivered practical sessions using Python to introduce AI concepts.</li>
+        </ul>
+        <div class="activity-feature" id="ml-class-um6p">
+          <img
+            src={withBase('/media/um6p-ml-class.jpg')}
+            alt="Machine learning class for the UM6P International Student Community"
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <h3>Machine learning classes · UM6P International Student Community</h3>
+            <p>
+              Delivered in-person classes on Python programming and the foundations
+              of machine learning.
+            </p>
+          </div>
+        </div>
+
+        <h2>Research supervision and mentoring</h2>
+        <p>
+          I have supervised research projects in machine learning for wireless
+          localization, guiding work from the definition of research questions
+          and selection of methods to implementation, experimental design
+          and analysis of results.
+        </p>
+
+        <h2>Program facilitation</h2>
+        <h3>Emerging Leaders in AI · Black in AI</h3>
+        <p>
+          As a program facilitator, I have helped run sessions, engaged with
+          participants and provided mentoring within the Emerging Leaders
+          in AI program.
+        </p>
+        <h2>AI education and public engagement</h2>
+        <div id="ai-training-webinar">
+          <h3>AI training webinar series</h3>
+          <p>
+            Delivered a series of introductory webinars on AI fundamentals,
+            practical applications and interactive exercises.
+          </p>
+        </div>
+        <p>
+          I have also participated in panels on AI in the workplace and
+          on the relationship between research and development in Africa,
+          with particular attention to connectivity and AI. Details are available under
+          <a href={withBase('/talks/#panels')}>Panels &amp; Forums</a>.
+        </p>
+
+        <h2>Academic service</h2>
+        <div id="ieee-reviewer-tpc-member">
+          <p>
+            I served on the Technical Program Committee for <strong>IEEE WCNC 2024</strong>
+            and have reviewed papers for IEEE ICC and IEEE GLOBECOM, as well as
+            manuscripts for IEEE Transactions on Wireless Communications,
+            IEEE Internet of Things Journal and IEEE Sensors Journal.
+          </p>
+        </div>
+      </article>
+
+      <aside class="sidebar-panel">
+        <h3>Related pages</h3>
+        <p class="small"><a href={withBase('/about/')}>About ↗</a></p>
+        <p class="small"><a href={withBase('/talks/')}>Talks &amp; Presentations ↗</a></p>
+        <p class="small"><a href={withBase('/publications/')}>Publications ↗</a></p>
+        <p class="small"><a href={withBase('/contact/')}>Contact ↗</a></p>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

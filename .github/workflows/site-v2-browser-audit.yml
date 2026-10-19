@@ -1,0 +1,51 @@
+name: V2 responsive browser audit
+
+on:
+  push:
+    branches:
+      - refactor/research-website-v2
+    paths:
+      - '.github/workflows/site-v2-browser-audit.yml'
+      - 'site-v2/scripts/audit-render.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  responsive-browser-audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site-v2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install site dependencies and Playwright
+        run: |
+          npm ci --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright
+          npx playwright install --with-deps chromium
+      - name: Build canonical site
+        env:
+          SITE_URL: https://yaya-etiabi.github.io
+          BASE_PATH: /
+        run: npm run build
+      - name: Run browser audit at mobile, tablet and desktop widths
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/site-v2-preview.log 2>&1 &
+          for i in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:4321/ > /dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/audit-render.mjs
+      - name: Preserve screenshots and measurements
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-v2-visual-audit
+          path: site-v2/visual-audit/
+          retention-days: 7
+          if-no-files-found: warn

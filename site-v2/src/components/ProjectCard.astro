@@ -1,0 +1,22 @@
+---
+import { withBase } from '../lib/site';
+
+interface Props {
+  slug: string;
+  title: string;
+  summary: string;
+  status: string;
+  period: string;
+  tags: string[];
+}
+const { slug, title, summary, status, period, tags } = Astro.props;
+---
+<article class="card project-card">
+  <div class="project-card-body">
+    <div class="meta-row"><span class="status">{status}</span><span>{period}</span></div>
+    <h3>{title}</h3>
+    <p>{summary}</p>
+    <div class="tag-list">{tags.slice(0,3).map((t)=><span class="tag">{t}</span>)}</div>
+    <a class="card-link" href={withBase('/projects/' + slug + '/')}>Explore the project <span aria-hidden="true">↗</span></a>
+  </div>
+</article>

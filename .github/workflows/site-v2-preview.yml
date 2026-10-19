@@ -1,0 +1,47 @@
+name: Legacy V2 preview (GitHub Pages Actions)
+
+# Direct Pages deployment on this fork currently fails with a Pages site
+# initialization 404. Retained for diagnosis, but not triggered on pushes.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: fork-v2-pages-preview
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.repository == 'Yaya195/yaya-etiabi.github.io'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Astro and build fork preview
+        working-directory: site-v2
+        env:
+          SITE_URL: https://Yaya195.github.io
+          BASE_PATH: /yaya-etiabi.github.io/
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+          npm run test:links
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site-v2/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

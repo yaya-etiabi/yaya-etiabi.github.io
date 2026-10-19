@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/site';
+const talks = [
+  {
+    "id": "2023-01-01-lora-localization-drl",
+    "title": "Deep Reinforcement Learning for LoRa Localization",
+    "event": "IEEE 97th Vehicular Technology Conference (VTC2023-Spring)",
+    "date": "20–23 June 2023",
+    "where": "Florence, Italy",
+    "desc": "Presented a deep reinforcement learning approach to spreading-factor assignment for LoRa localization.",
+    "doi": "10.1109/VTC2023-Spring.2023.10129758"
+  },
+  {
+    "id": "2023-03-01-federated-hierarchical-localization",
+    "title": "Federated Learning for Hierarchical 3D Indoor Localization",
+    "event": "IEEE Wireless Communications and Networking Conference (WCNC)",
+    "date": "26–29 March 2023",
+    "where": "Glasgow, United Kingdom",
+    "desc": "Presented a federated learning framework for hierarchical localization across buildings and floors.",
+    "doi": "10.1109/WCNC55385.2023.10118848"
+  },
+  {
+    "id": "2021-01-01-huber-bootstrap-localization",
+    "title": "Huber Estimator and Statistical Bootstrap for IoT Localization",
+    "event": "International Conference on Ubiquitous Networking (UNet)",
+    "date": "19–22 May 2021",
+    "where": "Virtual presentation",
+    "desc": "Discussed robust estimation and position refinement using Huber estimation and statistical bootstrapping.",
+    "doi": "10.1007/978-3-030-86356-2_7"
+  },
+  {
+    "id": "2020-01-01-distributed-collaborative-localization",
+    "title": "Distributed and Collaborative Localization for IoT",
+    "event": "18th International Conference on Advances in Mobile Computing & Multimedia (MoMM)",
+    "date": "30 November–2 December 2020",
+    "where": "Virtual presentation",
+    "desc": "Presented a distributed localization algorithm using a relaxed Huber loss formulation to address non-line-of-sight effects.",
+    "doi": "10.1145/3428690.3429161"
+  }
+];
+---
+<BaseLayout title="Talks & Presentations" description="Conference presentations in wireless localization, federated learning and IoT systems.">
+  <section class="page-hero"><div class="container"><div class="eyebrow">Research communication</div><h1>Talks &amp; Presentations</h1><p class="lead">Conference presentations of my research in wireless localization and learning-based methods for IoT networks.</p></div></section>
+  <div class="container page-content">
+    <div class="talk-list">
+      {talks.map(talk => <article class="talk-item" id={talk.id}>
+        <div class="talk-date">{talk.date}</div>
+        <h2>{talk.title}</h2>
+        <p class="talk-event">{talk.event} · {talk.where}</p>
+        <p>{talk.desc}</p>
+        <a class="link-arrow" href={'https://doi.org/' + talk.doi} target="_blank" rel="noopener noreferrer">Related publication ↗</a>
+      </article>)}
+    </div>
+    <p class="note" style="margin-top:28px">For teaching, mentoring and other academic activities, see <a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach</a>.</p>
+  </div>
+</BaseLayout>

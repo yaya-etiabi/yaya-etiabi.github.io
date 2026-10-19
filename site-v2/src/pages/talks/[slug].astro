@@ -1,0 +1,9 @@
+---
+import { withBase } from '../../lib/site';
+export function getStaticPaths() {
+  return ["2023-01-01-lora-localization-drl","2023-03-01-federated-hierarchical-localization","2021-01-01-huber-bootstrap-localization","2020-01-01-distributed-collaborative-localization"].map(slug=>({params:{slug},props:{slug}}));
+}
+const {slug} = Astro.props;
+const destination = withBase('/talks/#' + slug);
+---
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="noindex"/><meta http-equiv="refresh" content={'0; url=' + destination}/><title>Presentation moved | Yaya Etiabi</title></head><body><main><p>Presentation moved to <a href={destination}>Talks &amp; Presentations</a>.</p></main></body></html>

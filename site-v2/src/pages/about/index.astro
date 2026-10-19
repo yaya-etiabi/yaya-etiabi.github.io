@@ -2,32 +2,105 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase, site } from '../../lib/site';
 ---
-<BaseLayout title="About" description="Academic background and research experience of Yaya Etiabi in machine learning and wireless communications.">
-  <section class="page-hero"><div class="container"><div class="eyebrow">About</div><h1>About me</h1><p class="lead">I am a machine learning researcher with a PhD in Computer Science and a background in electrical engineering, embedded systems and telecommunications.</p></div></section>
-  <div class="container page-content"><div class="detail-grid">
-    <article class="prose">
-      <h2>Background</h2>
-      <p>I completed my PhD at Mohammed VI Polytechnic University (UM6P) in 2025. My doctoral research focused on machine learning for collaborative and privacy-preserving wireless localization in IoT networks, including federated learning, meta-learning and communication-efficient training.</p>
-      <p>My engineering background provides a foundation in wireless communications and embedded systems, which informs my work with radio measurements and learning algorithms.</p>
-      <h2>Research experience</h2>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-date">2025–2026</div><h3>Postdoctoral Researcher · Université du Québec à Montréal</h3><p>Research on AI-native wireless systems, ISCC and Edge Intelligence.</p></div>
-        <div class="timeline-item"><div class="timeline-date">2020–2025</div><h3>Doctoral Research · Mohammed VI Polytechnic University</h3><p>Collaborative, adaptive and communication-efficient machine learning for wireless localization.</p></div>
-        <div class="timeline-item"><div class="timeline-date">2023</div><h3>Research Internship · ISEP, Paris</h3><p>Federated and meta-learning for indoor localization and adaptation across environments.</p></div>
-      </div>
-      <h2>Research approach</h2>
-      <p>My work involves formulating research problems, designing and implementing learning methods, conducting experiments and evaluating results through quantitative analysis and comparison with established baselines.</p>
-      <p>Current research directions and individual studies are described on the <a href={withBase('/research/')}>Research page</a> and in the <a href={withBase('/projects/')}>project portfolio</a>.</p>
-      <h2>Teaching and academic activities</h2>
-      <p>Teaching, mentoring and supervising student research projects are also part of my academic experience. I contribute to AI education, scientific communities and peer review.</p>
-      <p><a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach ↗</a> · <a href={withBase('/talks/')}>Talks &amp; Presentations ↗</a></p>
-    </article>
-    <aside class="sidebar-panel"><h3>Academic profiles</h3>
-      <p class="small"><a href={site.scholar}>Google Scholar ↗</a></p>
-      <p class="small"><a href={site.orcid}>ORCID ↗</a></p>
-      <p class="small"><a href={site.github}>GitHub ↗</a></p>
-      <p class="small"><a href={withBase('/cv/')}>CV ↗</a></p>
-      <p class="small"><a href={withBase('/contact/')}>Contact ↗</a></p>
-    </aside>
-  </div></div>
+<BaseLayout
+  title="About"
+  description="Yaya Etiabi's academic background, research trajectory, teaching, mentorship and contributions to the research community."
+>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Background &amp; academic activities</div>
+      <h1>About me</h1>
+      <p class="lead">
+        I am a machine learning researcher with a PhD in Computer Science and an engineering background
+        in embedded systems and telecommunications. My work connects machine learning with wireless
+        communications, from collaborative localization to sensing and inference at the network edge.
+      </p>
+    </div>
+  </section>
+
+  <div class="container page-content">
+    <div class="detail-grid">
+      <article class="prose">
+        <h2>Research background</h2>
+        <p>
+          I trained in electrical engineering at Hassan II University, specializing in embedded systems
+          and telecommunications. My early research focused on distributed localization in Internet of
+          Things (IoT) networks, including robust position estimation from radio measurements.
+        </p>
+        <p>
+          I completed my PhD in Computer Science at Mohammed VI Polytechnic University (UM6P) in 2025.
+          My doctoral research investigated collaborative and privacy-preserving machine learning for
+          wireless localization. I developed and evaluated federated learning, meta-learning and
+          federated distillation methods to address adaptation across indoor environments and the
+          communication overhead of distributed training. This research also included a research
+          internship at ISEP in Paris.
+        </p>
+        <p>
+          During my postdoctoral appointment at Université du Québec à Montréal (UQAM) in 2025–2026,
+          I expanded my work toward AI-native wireless systems and Edge Intelligence. My current research
+          interests include integrated sensing, communication and computation (ISCC) for learning and
+          inference, as well as radio sensing and localization using multipath measurements.
+          The <a href={withBase('/research/')}>Research</a> and
+          <a href={withBase('/projects/')}>Projects</a> pages describe these directions and their
+          associated studies.
+        </p>
+
+        <h2>Research practice</h2>
+        <p>
+          My research experience covers problem formulation, the design and implementation of learning
+          and estimation methods, and experimental evaluation. I work with wireless-system simulations
+          and experimental datasets, compare approaches against established baselines, and analyze
+          localization accuracy, model adaptation, communication overhead or computational cost,
+          depending on the problem. My published work is listed on the
+          <a href={withBase('/publications/')}>Publications page</a>.
+        </p>
+
+        <h2>Teaching, mentoring and academic service</h2>
+        <p>
+          I have taught programming and machine learning through laboratory sessions, regular classes
+          and hands-on AI training. I have also mentored and supervised undergraduate and master's-level
+          research projects, supporting students in developing research questions, implementing methods
+          and evaluating their results. Some of this supervised work has contributed to IEEE conference
+          publications.
+        </p>
+        <p>
+          My academic service includes membership of the Technical Program Committee for IEEE WCNC 2024
+          and peer review for IEEE conferences and journals. Further details of these activities are
+          available on the <a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach page</a>.
+        </p>
+
+        <h2>Scientific communication and community involvement</h2>
+        <p>
+          I have presented my research at international conferences and at academic events. I was a
+          finalist in the IEEE ComSoc Three Minute Thesis competition at IEEE ICC 2023, received
+          the Best Oral Presenter award at UM6P Doctoral Days, and received the Best Poster
+          Presentation award at a MOMI research event hosted by Inria, Université Côte d'Azur.
+          These presentations and distinctions are documented on my
+          <a href={withBase('/talks/')}>Talks &amp; Presentations page</a>.
+        </p>
+        <p>
+          I also contribute to AI education and knowledge sharing through community classes, webinars
+          and public panels. This involvement includes facilitating and mentoring within Black in AI's
+          Emerging Leaders in AI program, as well as serving as Director of Scientific and Thematic
+          Content at AURA Association.
+        </p>
+      </article>
+
+      <aside class="sidebar-panel" aria-label="Explore profile and related work">
+        <h3>Explore my work</h3>
+        <p class="small"><a href={withBase('/research/')}>Research directions ↗</a></p>
+        <p class="small"><a href={withBase('/projects/')}>Research projects ↗</a></p>
+        <p class="small"><a href={withBase('/publications/')}>Publications ↗</a></p>
+        <p class="small"><a href={withBase('/talks/')}>Talks &amp; Presentations ↗</a></p>
+        <p class="small"><a href={withBase('/teaching-outreach/')}>Teaching &amp; Outreach ↗</a></p>
+        <div class="sidebar-divider" aria-hidden="true"></div>
+        <h3>Academic profiles</h3>
+        <p class="small"><a href={site.scholar} target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></p>
+        <p class="small"><a href={site.orcid} target="_blank" rel="noopener noreferrer">ORCID ↗</a></p>
+        <p class="small"><a href={site.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a></p>
+        <p class="small"><a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></p>
+        <p class="small"><a href={withBase('/contact/')}>Contact ↗</a></p>
+      </aside>
+    </div>
+  </div>
 </BaseLayout>

@@ -43,7 +43,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
           {nav.map((item) => (
             <a href={withBase(item.href)} aria-current={current.includes(item.href) ? 'page' : undefined}>{item.label}</a>
           ))}
-          <a class="nav-cv" href={withBase('/cv/')}>CV <span aria-hidden="true">↗</span></a>
         </nav>
       </div>
     </header>

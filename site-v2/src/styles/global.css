@@ -31,8 +31,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid #49b59d; outline-offs
 .primary-nav a { text-decoration: none; font-size: .9rem; font-weight: 600; color: #344951; white-space: nowrap; }
 .primary-nav a[aria-current="page"] { color: var(--accent); }
 .primary-nav a:hover { color: var(--accent); }
-.primary-nav .nav-cv { border: 0; border-radius: 0; padding: 0; color: var(--accent); text-decoration: underline; text-underline-offset: 5px; }
-.primary-nav .nav-cv:hover { background: transparent; color: var(--deep); }
 .eyebrow { text-transform: uppercase; font-weight: 800; font-size: .75rem; letter-spacing: .16em; color: var(--accent); }
 h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; letter-spacing: -.035em; color: var(--deep); }
 h1 { font-size: clamp(2.65rem, 5vw, 4.8rem); margin: 14px 0 20px; font-weight: 800; }
@@ -157,3 +155,6 @@ p { margin: 0 0 16px; }
 .activity-feature h3{margin:0 0 8px;}
 .activity-feature p{margin:0;}
 @media(max-width:650px){.activity-feature{grid-template-columns:1fr;gap:12px;}.activity-feature img{max-width:100%;height:auto;max-height:250px;object-fit:cover;}}
+
+/* About page navigation */
+.sidebar-panel .sidebar-divider{border-top:1px solid var(--line);margin:22px 0 21px;}

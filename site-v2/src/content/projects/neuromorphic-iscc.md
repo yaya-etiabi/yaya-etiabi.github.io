@@ -1,25 +1,25 @@
 ---
-title: "Neuromorphic Edge Inference for ISCC"
-summary: "Exploratory research into spiking models and split inference under sensing and communication constraints."
+title: "Neuromorphic ISCC"
+summary: "Research on neuromorphic approaches to sensing, communication and computation, with initial experiments on event-driven edge inference."
 status: "Research in Progress"
 period: "2026"
-tags: ["Spiking neural networks", "Split inference", "ISCC"]
+tags: ["Neuromorphic ISCC", "Edge inference", "Event-driven computing"]
 featured: false
 sortOrder: 3
 ---
 
-## Motivation
+## Research direction
 
-Edge inference must balance model quality with memory, energy, latency and communication costs. Event-based and spiking approaches may offer different operating points from conventional dense neural networks.
+Neuromorphic ISCC examines how neuromorphic sensing and processing principles can be considered alongside communication and computation within integrated systems. The focus is not limited to a particular neural network model. It includes the way events are sensed, represented, processed and communicated across connected devices.
 
-## Current investigation
+## Initial investigation
 
-This direction explores **spiking neural networks** and partitioned inference across resource-constrained devices and edge infrastructure, with particular attention to how sensing quality and communication conditions affect downstream predictions.
+An initial line of work uses **spiking neural networks and split inference** to study inference across devices and edge infrastructure. This provides one experimental setting for examining the relationship between sensing quality, communication conditions and prediction accuracy.
 
-## Evaluation approach
+## Evaluation
 
-Initial experiments examine controlled sensing and transmission perturbations, including noise, and compare accuracy and system-related tradeoffs.
+Current experiments include controlled sensing perturbations, noise and communication effects. The aim is to compare inference quality and system-related costs under explicitly defined experimental settings.
 
 ## Status
 
-This is **exploratory research**, not a claim of production readiness or a peer-reviewed publication. Detailed results will be added only after they are ready for public disclosure.
+**Research in progress.** This page describes the research direction and the initial methods being investigated.

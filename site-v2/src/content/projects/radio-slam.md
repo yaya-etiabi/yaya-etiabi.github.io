@@ -1,27 +1,25 @@
 ---
-title: "Radio-SLAM and Learning-Based Radio Geometry"
-summary: "Using radio-derived propagation measurements to support localization and mapping without relying exclusively on conventional visual sensors."
+title: "Radio-SLAM and Multipath Geometry"
+summary: "Radio-based localization and mapping using estimated propagation delays and angles."
 status: "Research in Progress"
 period: "2026"
-tags: ["Radio-SLAM", "Localization", "Wireless sensing"]
+tags: ["Radio-SLAM", "Multipath geometry", "Localization"]
 featured: false
 sortOrder: 4
 ---
 
-## Research question
+## Research problem
 
-How reliably can multipath propagation measurements support trajectory estimation and environmental mapping, especially when their quality, association and geometric meaning are uncertain?
+Radio signals contain geometric information about the relationship between devices and surrounding reflectors. Using these measurements for simultaneous localization and mapping requires handling uncertain path estimates and associations.
 
 ## Approach
 
-My recent work explores radio-geometric measurements for simultaneous localization and mapping, including pipelines that make use of estimated delay and angular information.
-
-The broader research direction also examines learning-based representations and online inference procedures for radio-only localization.
+This research investigates radio-based SLAM with propagation measurements, including estimated delays and angular parameters of multipath components. The work examines online trajectory estimation and representations that use radio observations without requiring visual input.
 
 ## Evaluation
 
-Current experiments focus on trajectory quality, relative pose consistency, estimation error and the reliability of radio features under changing conditions. The work includes diagnostic and ablation-style analyses intended to separate model limitations from measurement errors.
+The experiments examine trajectory-estimation error, relative pose consistency and sensitivity to measurement quality. Diagnostic tests and ablations are used to distinguish limitations of the geometric model from errors in the radio measurements.
 
-## Status and disclosure
+## Status
 
-This is **ongoing work**. Detailed experimental results, code and datasets are not claimed to be publicly released here.
+**Research in progress.**

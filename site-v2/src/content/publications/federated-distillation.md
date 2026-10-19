@@ -10,4 +10,4 @@ legacySlug: "2024-01-01-Federated-distillation-for-localization"
 project: "federated-distillation"
 ---
 
-A regression-oriented federated distillation framework for collaborative indoor localization. Metadata corrected from the publisher-linked version of record.
+Federated distillation adapted to regression for collaborative indoor localization, with an evaluation of communication and energy tradeoffs.

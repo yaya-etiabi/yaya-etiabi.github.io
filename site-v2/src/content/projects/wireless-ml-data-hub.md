@@ -1,9 +1,9 @@
 ---
 title: "Wireless ML Data Hub"
-summary: "A publicly maintained resource for discovering datasets and benchmarks in wireless machine learning."
+summary: "An open-source catalogue of datasets, tasks and research resources for machine learning in wireless communications."
 status: "Open Source"
 period: "2026"
-tags: ["Open source", "Datasets", "Research tooling"]
+tags: ["Datasets", "Open source", "Research tooling"]
 featured: false
 sortOrder: 5
 codeUrl: "https://github.com/Yaya195/wireless-ml-datasets"
@@ -11,18 +11,16 @@ codeUrl: "https://github.com/Yaya195/wireless-ml-datasets"
 
 ## Motivation
 
-Finding suitable datasets for machine-learning research in wireless communications often requires piecing together information spread across papers, project pages and repositories.
+Research on machine learning for wireless systems relies on datasets that are distributed across publications, repositories and project websites. Comparing methods and choosing suitable benchmarks can therefore require substantial dataset discovery work.
 
-## Project
+## Resource
 
-**Wireless ML Data Hub** organizes publicly documented wireless-learning datasets, associated research tasks and useful resources into a discoverable catalogue.
+**Wireless ML Data Hub** brings together publicly documented wireless datasets, their associated learning tasks and relevant research resources in a structured, searchable catalogue.
 
-The repository includes scripts to build, audit and validate catalogue entries. The goal is to make dataset discovery and benchmarking preparation less repetitive for wireless-ML researchers.
+## Implementation
 
-## Engineering contribution
+The repository includes scripts for building, checking and auditing the catalogue, together with automated tests. Dataset coverage and resources evolve as the catalogue is updated.
 
-The project combines structured research metadata with reproducible repository tooling, including validation scripts and automated checks.
+## Source code
 
-## Resources
-
-The project is public on GitHub. The repository is the authoritative place to view its current coverage, recent changes, license and contribution instructions.
+The public <a href="https://github.com/Yaya195/wireless-ml-datasets">GitHub repository</a> contains the current catalogue, scripts and contribution information.

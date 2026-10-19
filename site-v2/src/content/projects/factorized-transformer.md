@@ -1,29 +1,25 @@
 ---
 title: "Factorized Transformer for Multipath Estimation"
-summary: "Joint estimation of multipath delay, angle of arrival and angle of departure from MIMO-OFDM observations."
+summary: "Joint detection and estimation of multipath delay, angle of arrival and angle of departure from MIMO-OFDM radio measurements."
 status: "Under Review"
 period: "2026"
-tags: ["Transformers", "MIMO-OFDM", "Channel estimation"]
+tags: ["Transformers", "MIMO-OFDM", "Multipath estimation"]
 featured: true
 sortOrder: 2
 ---
 
 ## Problem
 
-Radio positioning and mapping algorithms rely on geometric information extracted from multipath propagation. Jointly identifying multiple propagation components and estimating their parameters is challenging in dense wireless channels.
+Wireless localization and mapping can use the delay and angular parameters of multipath components (MPCs) to infer radio geometry. Recovering multiple propagation paths from received signals is challenging when paths overlap or have weak power.
 
-## Approach
+## Method
 
-The investigated architecture processes angle-delay representations derived from MIMO-OFDM observations. A factorized feature extractor and a query-based Transformer decoder are used to estimate a set of propagation paths and their **delay, AoA and AoD** parameters.
-
-## Research contribution
-
-The study investigates a factorized detection-and-estimation pipeline and downstream use of inferred multipath parameters in positioning and radio mapping.
+The proposed model takes an angle-delay power representation derived from MIMO-OFDM observations. A factorized convolutional feature extractor processes the input, and a query-based Transformer decoder detects a set of propagation paths while estimating their **delay, angle of arrival (AoA) and angle of departure (AoD)**.
 
 ## Evaluation
 
-Experimental work uses ray-tracing-based channel data and comparisons covering detection performance, parameter estimation, set consistency and computational cost. Positioning and Radio-SLAM demonstrations examine whether estimated path parameters are useful as geometric observations.
+Experiments on ray-tracing-based wireless channels compare path detection, parameter-estimation accuracy, set-level consistency and computational cost with reference methods. Additional positioning and radio-SLAM studies assess whether the estimated MPC parameters are useful as radio-geometric measurements.
 
-## Publication status
+## Manuscript
 
-The manuscript is **under review**. A link will be added when a public version becomes available.
+The manuscript is **under review**.

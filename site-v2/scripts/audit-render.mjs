@@ -7,7 +7,7 @@ const routes = [
   '/projects/radio-slam/', '/publications/', '/teaching-outreach/',
   '/talks/', '/about/', '/contact/'
 ];
-const widths = [375, 768, 1280];
+const widths = [320, 375, 768, 1280];
 const screenshotRoutes = new Set(['/', '/projects/', '/teaching-outreach/', '/about/']);
 const errors = [];
 const summaries = [];
@@ -36,7 +36,12 @@ try {
         const missingAlt = [...document.images].filter(img => !img.hasAttribute('alt'))
           .map(img => img.getAttribute('src'));
         const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href');
-        const selectedNav = [...document.querySelectorAll('nav[aria-label="Primary navigation"] a[aria-current="page"]')].map(a => a.textContent.trim());
+        const allNavLinks = [...document.querySelectorAll('nav[aria-label="Primary navigation"] a')];
+        const clippedNavLinks = allNavLinks.filter(link => {
+          const rect = link.getBoundingClientRect();
+          return rect.left < -1 || rect.right > window.innerWidth + 1;
+        }).map(link => link.textContent.trim());
+        const selectedNav = allNavLinks.filter(link => link.getAttribute('aria-current') === 'page').map(link => link.textContent.trim());
         return {
           title: document.title,
           h1Count: heading.length,
@@ -47,6 +52,7 @@ try {
           missingAlt,
           canonical,
           selectedNav,
+          clippedNavLinks,
           hasSkipTarget: Boolean(document.getElementById('content')),
         };
       });
@@ -55,11 +61,12 @@ try {
       if (result.documentWidth > width + 2) errors.push(label + ': horizontal overflow ' + result.documentWidth);
       if (result.h1Count !== 1 || result.missingMain || !result.hasSkipTarget) errors.push(label + ': document landmarks');
       if (result.brokenImages.length || result.missingAlt.length) errors.push(label + ': images ' + JSON.stringify({broken:result.brokenImages,missingAlt:result.missingAlt}));
+      if (result.clippedNavLinks.length) errors.push(label + ': hidden navigation items ' + result.clippedNavLinks.join(', '));
       if (!result.canonical?.startsWith('https://yaya-etiabi.github.io/')) errors.push(label + ': canonical ' + result.canonical);
       if (route !== '/' && route.split('/').filter(Boolean).length === 1 && !result.selectedNav.length && route !== '/contact/') errors.push(label + ': nav not marked current');
       if (runtimeErrors.length) errors.push(label + ': JS errors ' + JSON.stringify(runtimeErrors.splice(0)));
       summaries.push({ width, route, status, ...result });
-      if (screenshotRoutes.has(route) && width !== 768) {
+      if (screenshotRoutes.has(route) && (width === 375 || width === 1280)) {
         const name = route === '/' ? 'home' : route.slice(1).replace(/\//g, '-');
         await page.screenshot({ path: 'visual-audit/' + name + '-' + width + '.png', fullPage: true, animations: 'disabled' });
       }

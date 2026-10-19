@@ -1,0 +1,62 @@
+---
+import '../styles/global.css';
+import { site, withBase } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = site.heading, description = site.description } = Astro.props;
+const nav = [
+  { label: 'Research', href: '/research/' },
+  { label: 'Projects', href: '/projects/' },
+  { label: 'Publications', href: '/publications/' },
+  { label: 'About', href: '/about/' },
+];
+const current = Astro.url.pathname;
+const rootPath = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
+const preview = rootPath.length > 0;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8faf9" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Yaya Etiabi" />
+    <meta name="robots" content={preview ? 'noindex,nofollow' : 'index,follow'} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <title>{title === site.heading ? title : title + ' | ' + site.name}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="wordmark" href={withBase('/')} aria-label="Yaya Etiabi — homepage">YE<span class="wordmark-dot">.</span><span class="wordmark-name">Yaya Etiabi</span></a>
+        <nav aria-label="Primary navigation" class="primary-nav">
+          {nav.map((item) => (
+            <a href={withBase(item.href)} aria-current={current.includes(item.href) ? 'page' : undefined}>{item.label}</a>
+          ))}
+          <a class="nav-cv" href={withBase('/cv/')}>CV <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+    <main id="content"><slot /></main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div><span class="footer-name">Yaya Etiabi</span><p>Research · Engineering · Knowledge sharing</p></div>
+        <div class="footer-links">
+          <a href={site.github} rel="me">GitHub</a>
+          <a href={site.scholar} rel="me">Google Scholar</a>
+          <a href={site.linkedin} rel="me">LinkedIn</a>
+          <a href={withBase('/contact/')}>Contact</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">© {new Date().getFullYear()} Yaya Etiabi. Built with Astro. Hosted on GitHub Pages.</div>
+    </footer>
+  </body>
+</html>

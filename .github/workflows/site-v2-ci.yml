@@ -1,0 +1,42 @@
+name: V2 static build checks (no deploy)
+
+on:
+  push:
+    branches:
+      - refactor/research-website-v2
+    paths:
+      - 'site-v2/**'
+      - '.github/workflows/site-v2-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-static-site:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site-v2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build canonical organization-root site
+        env:
+          SITE_URL: https://yaya-etiabi.github.io
+          BASE_PATH: /
+        run: |
+          npm run build
+          npm run test:links
+      - name: Build fork preview under project subpath
+        env:
+          SITE_URL: https://Yaya195.github.io
+          BASE_PATH: /yaya-etiabi.github.io/
+        run: |
+          npm run build
+          npm run test:links
+          grep -q 'noindex,nofollow' dist/index.html

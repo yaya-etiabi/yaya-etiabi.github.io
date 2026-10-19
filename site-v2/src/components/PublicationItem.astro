@@ -1,0 +1,23 @@
+---
+import { withBase } from '../lib/site';
+
+interface Props {
+  title: string;
+  authors: string[];
+  year: number;
+  venue: string;
+  kind: string;
+  doi?: string;
+  project?: string;
+}
+const {title,authors,year,venue,kind,doi,project} = Astro.props;
+---
+<li>
+  <div class="pub-title">{title}</div>
+  <div class="pub-meta">{authors.join(', ')}</div>
+  <div class="pub-meta"><em>{venue}</em> · {year} · {kind}</div>
+  <div class="pub-links">
+    {doi && <a href={'https://doi.org/' + doi} target="_blank" rel="noopener noreferrer">DOI ↗</a>}
+    {project && <a href={withBase('/projects/' + project + '/')}>Research project →</a>}
+  </div>
+</li>

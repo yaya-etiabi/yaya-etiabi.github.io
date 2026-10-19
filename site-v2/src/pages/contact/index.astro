@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../lib/site';
+---
+<BaseLayout title="Contact" description="Contact Yaya Etiabi for research and professional collaborations.">
+  <section class="page-hero"><div class="container"><div class="eyebrow">Contact</div><h1>Let's connect</h1><p class="lead">I welcome exchanges about research ideas, scientific collaboration, applied machine learning and intelligent wireless systems.</p></div></section>
+  <section class="section"><div class="container">
+    <p class="muted" style="max-width:670px">The most reliable contact routes currently listed are my professional profiles. A direct contact email will be added once verified, rather than publishing a potentially outdated institutional address.</p>
+    <div class="contact-links"><a href={site.linkedin}>LinkedIn ↗</a><a href={site.github}>GitHub ↗</a><a href={site.scholar}>Google Scholar ↗</a><a href={site.orcid}>ORCID ↗</a></div>
+  </div></section>
+</BaseLayout>

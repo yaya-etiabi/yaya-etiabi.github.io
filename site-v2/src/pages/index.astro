@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import { getCollection } from 'astro:content';
+import { withBase, site } from '../lib/site';
+
+const projects = (await getCollection('projects')).sort((a,b) => a.data.sortOrder - b.data.sortOrder);
+const featured = projects.filter(p=>p.data.featured).slice(0,3);
+const publications = (await getCollection('publications')).filter(p=>p.data.featured).sort((a,b)=>b.data.year-a.data.year).slice(0,3);
+const areas = [
+  {number:'01', title:'Collaborative & Privacy-Preserving ML',description:'Distributed learning, adaptation and communication-efficient knowledge exchange in wireless networks.'},
+  {number:'02',title:'Wireless Sensing & Localization',description:'Learning from radio measurements and sensor observations for localization and environmental understanding.'},
+  {number:'03',title:'Edge Intelligence & ISCC',description:'Joint consideration of sensing, communication and computation for intelligence at the network edge.'},
+];
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Machine Learning · Wireless Systems</div>
+        <h1>Intelligence at the wireless edge.</h1>
+        <p class="lead">I am Yaya Etiabi, a machine learning researcher working at the intersection of intelligent wireless systems, collaborative learning, sensing, and localization.</p>
+        <p class="muted">My work connects learning algorithms with the practical constraints of communication, sensing and computation in connected environments.</p>
+        <div class="button-row">
+          <a class="button primary" href={withBase('/research/')}>Explore my research <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href={withBase('/projects/')}>View research projects</a>
+        </div>
+      </div>
+      <div class="hero-art" role="img" aria-label="Abstract wireless-edge research motif with distributed nodes and concentric radio waves">
+        <div class="signal-node a"></div><div class="signal-node b"></div><div class="signal-node c"></div><div class="signal-node d"></div>
+        <div class="diagram-center">ML</div>
+        <span class="diagram-label">SENSING · LEARNING · COMPUTING</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><div class="eyebrow section-label">Research directions</div><h2>Questions that connect my work</h2><p>From collaborative learning to radio perception, my research explores how intelligent systems can operate effectively with distributed, imperfect and resource-constrained data.</p></div><a class="link-arrow" href={withBase('/research/')}>Research overview ↗</a></div>
+      <div class="grid-3">{areas.map(area=><article class="card"><div class="kicker">{area.number} / Research area</div><h3>{area.title}</h3><p>{area.description}</p></article>)}</div>
+    </div>
+  </section>
+
+  <section class="section soft-section">
+    <div class="container">
+      <div class="section-head"><div><div class="eyebrow section-label">Selected work</div><h2>Research in practice</h2><p>Technical work presented with its problem setting, scientific contribution, evaluation and related resources.</p></div><a class="link-arrow" href={withBase('/projects/')}>All projects ↗</a></div>
+      <div class="grid-3">{featured.map((project,index)=><ProjectCard slug={project.id} title={project.data.title} summary={project.data.summary} status={project.data.status} period={project.data.period} tags={project.data.tags} index={index}/>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><div class="eyebrow section-label">Research outputs</div><h2>Selected publications</h2><p>Peer-reviewed work in machine learning, distributed systems and wireless localization.</p></div><a class="link-arrow" href={withBase('/publications/')}>Full publication list ↗</a></div>
+      <ul class="pub-list">{publications.map(p=><PublicationItem {...p.data}/>)}</ul>
+    </div>
+  </section>
+
+  <section class="section soft-section">
+    <div class="container">
+      <div class="section-head"><div><div class="eyebrow section-label">Beyond research</div><h2>Engineering, teaching, and scientific service</h2><p>My background spans electrical engineering, research software and experimental machine learning, alongside teaching, mentoring and peer review.</p></div><a class="button secondary" href={withBase('/about/')}>About my background ↗</a></div>
+    </div>
+  </section>
+</BaseLayout>

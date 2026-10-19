@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/site';
+---
+<BaseLayout title="Research" description="Research directions in collaborative machine learning, wireless sensing and edge intelligence.">
+  <section class="page-hero"><div class="container"><div class="eyebrow">Research</div><h1>Research directions</h1><p class="lead">My research investigates how machine learning can make wireless and connected systems more capable, adaptive and resource-efficient.</p></div></section>
+  <div class="container page-content">
+    <div class="detail-grid">
+      <div class="prose">
+        <p>At the core of this work are three connected questions: how to learn collaboratively without centralizing data; how to extract geometric and environmental information from radio signals; and how to design intelligent systems around real communication and computation constraints.</p>
+        <h2>01. Collaborative &amp; Privacy-Preserving Learning</h2>
+        <p>In distributed wireless environments, data and resources are fragmented across devices and sites. My work includes federated learning, federated meta-learning and federated distillation for localization, with an emphasis on generalization, adaptation and communication overhead.</p>
+        <p><a href={withBase('/projects/femloc/')}>FeMLoc research project ↗</a> · <a href={withBase('/projects/federated-distillation/')}>Federated distillation ↗</a></p>
+        <h2>02. Wireless Sensing &amp; Localization</h2>
+        <p>I study estimation and learning methods that turn radio measurements into location and geometric information. This spans collaborative indoor positioning, radio-inertial learning, multipath channel-parameter estimation and radio-based simultaneous localization and mapping.</p>
+        <p><a href={withBase('/projects/factorized-transformer/')}>Factorized Transformer ↗</a> · <a href={withBase('/projects/radio-slam/')}>Radio-SLAM research ↗</a></p>
+        <h2>03. Edge Intelligence &amp; ISCC</h2>
+        <p>Emerging wireless systems require intelligence to be designed jointly with sensing, communication and computation. My current interests include efficient edge inference, split inference and their resource-quality tradeoffs, with exploratory work on neuromorphic methods.</p>
+        <p><a href={withBase('/projects/neuromorphic-iscc/')}>Exploratory neuromorphic ISCC work ↗</a></p>
+        <div class="feature-note"><strong>Research approach.</strong> I place particular value on clearly defined experimental assumptions, reproducible evaluations and comparisons that reveal the practical tradeoffs of learning-based methods.</div>
+      </div>
+      <aside class="sidebar-panel"><h3>Browse related material</h3><p class="small">Selected implementations and experimental case studies appear in the projects section. Bibliographic records and DOI links are available separately.</p><a class="card-link" href={withBase('/projects/')}>Technical projects ↗</a><br/><a class="card-link" href={withBase('/publications/')}>Publications ↗</a></aside>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/site';
+---
+<BaseLayout title="CV" description="Academic and research background of Yaya Etiabi.">
+  <section class="page-hero"><div class="container"><div class="eyebrow">Curriculum vitae</div><h1>Academic CV</h1><p class="lead">A brief overview of my academic training, research experience and technical background.</p></div></section>
+  <div class="container page-content">
+    <div class="detail-grid">
+      <div class="prose">
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-date">2025</div><h3>PhD · Computer &amp; Communication Sciences</h3><p>Mohammed VI Polytechnic University (UM6P). Thesis: Advanced Machine Learning Techniques for Collaborative and Privacy-Preserving Wireless Localization in IoT Networks.</p></div>
+          <div class="timeline-item"><div class="timeline-date">2020</div><h3>Engineering degree · Electrical Engineering</h3><p>Embedded Systems &amp; Telecommunications · Hassan II University.</p></div>
+        </div>
+        <h2>Research experience</h2>
+        <p><strong>Postdoctoral research, UQAM (2025–2026)</strong> · Integrated Sensing, Communication and Computation; edge intelligence.</p>
+        <p><strong>Doctoral research, UM6P (2020–2025)</strong> · Federated learning, meta-learning, distillation and wireless localization.</p>
+        <h2>Technical areas</h2>
+        <p>Python, C/C++, PyTorch, deep learning, transfer learning, federated learning, statistical estimation, neural networks and wireless system modeling.</p>
+        <h2>Teaching and scientific service</h2>
+        <p>Programming and machine learning instruction, research supervision, mentoring, reviewing and scientific outreach.</p>
+        <p class="feature-note"><strong>Document status:</strong> This is the validated-summary page for the site prototype. A downloadable PDF will be added only after checking that its content and dates are current.</p>
+      </div>
+      <aside class="sidebar-panel"><h3>Research record</h3><p class="small">See the publications catalogue for peer-reviewed output or contact me for a complete academic CV.</p><a class="card-link" href={withBase('/publications/')}>Publications ↗</a><br/><a class="card-link" href={withBase('/contact/')}>Contact ↗</a></aside>
+    </div>
+  </div>
+</BaseLayout>

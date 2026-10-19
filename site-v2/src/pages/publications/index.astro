@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PublicationItem from '../../components/PublicationItem.astro';
+import { getCollection } from 'astro:content';
+
+const publications = (await getCollection('publications')).sort((a,b)=>b.data.year-a.data.year || a.data.title.localeCompare(b.data.title));
+const years = [...new Set(publications.map(p=>p.data.year))];
+---
+<BaseLayout title="Publications" description="Peer-reviewed journal and conference publications in wireless systems and machine learning.">
+  <section class="page-hero"><div class="container"><div class="eyebrow">Scholarly output</div><h1>Publications</h1><p class="lead">Peer-reviewed journal and conference articles, with persistent DOI links to publisher records.</p></div></section>
+  <div class="container page-content">
+    <p class="muted">For citation metrics and the most recent indexed records, visit <a href="https://scholar.google.ca/citations?user=S_lqw5EAAAAJ">Google Scholar ↗</a>. Records here are reviewed during migration; the journal article on federated distillation has been corrected using its publisher DOI.</p>
+    {years.map(year => <section class="section-tight"><div class="eyebrow section-label">{year}</div><ul class="pub-list">{publications.filter(p=>p.data.year===year).map(p=><PublicationItem {...p.data}/>)}</ul></section>)}
+  </div>
+</BaseLayout>

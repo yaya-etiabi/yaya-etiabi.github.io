@@ -1,8 +1,8 @@
 export const site = {
   name: 'Yaya Etiabi',
   heading: 'Yaya Etiabi, PhD',
-  strapline: 'Machine Learning Researcher',
-  focus: 'Wireless Systems · Edge Intelligence · Sensing & Localization',
+  strapline: 'Applied Machine Learning Researcher',
+  focus: 'Wireless Communications | Localization | Internet of Things (IoT) | Edge Intelligence',
   description: 'Research in machine learning for intelligent wireless systems, collaborative learning, sensing and localization.',
   github: 'https://github.com/Yaya195',
   scholar: 'https://scholar.google.ca/citations?user=S_lqw5EAAAAJ',

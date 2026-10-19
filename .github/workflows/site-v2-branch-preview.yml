@@ -33,7 +33,7 @@ jobs:
           SITE_URL: https://Yaya195.github.io
           BASE_PATH: /yaya-etiabi.github.io/
         run: |
-          npm install --no-audit --no-fund
+          npm ci --no-audit --no-fund
           npm run build
           npm run test:links
           grep -q 'noindex,nofollow' dist/index.html

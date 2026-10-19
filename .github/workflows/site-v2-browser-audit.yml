@@ -25,7 +25,7 @@ jobs:
           node-version: '22'
       - name: Install site dependencies and Playwright
         run: |
-          npm install --no-audit --no-fund
+          npm ci --no-audit --no-fund
           npm install --no-save --no-audit --no-fund playwright
           npx playwright install --with-deps chromium
       - name: Build canonical site

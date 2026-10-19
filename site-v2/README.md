@@ -12,7 +12,7 @@ Node.js 22 or newer and npm.
 
 ```sh
 cd site-v2
-npm install
+npm ci
 npm run dev
 ```
 
@@ -49,18 +49,18 @@ Most content is plain Markdown plus YAML frontmatter. No backend database or run
 
 ## Deployment safety
 
-The CI workflow at `../.github/workflows/site-v2-ci.yml` deliberately **does not deploy**. It checks two static builds. The production deployment workflow in the old Jekyll repository should be changed only after a reviewed pull request and release decision.
+The CI workflow at `../.github/workflows/site-v2-ci.yml` deliberately **does not deploy**. It checks two static builds. The release-ready `../.github/workflows/jekyll.yml` builds Astro but deploys only when this branch has been explicitly merged into `master` in the canonical organization repository. See `../docs/v2/PRODUCTION_RELEASE_CHECKLIST.md` for the release and rollback plan.
 
 ## Current limitations
 
-- The first set of publication records is migrated from the existing site and needs a final full bibliographic audit.
+- Publications have been reconciled against the 11 BibTeX entries supplied for this release, including one clearly marked preprint.
 - Research-in-progress pages intentionally have no invented code links or accepted-paper claims.
-- The current CV page is a research-background summary until an approved up-to-date PDF is available.
-- Portrait/figures and contact email will be added after selecting authoritative assets and details.
-- A dependency lockfile still needs to be generated from a real npm install and committed prior to production release.
+- No PDF CV is published. Historical CV and résumé routes lead to About.
+- A profile portrait and selected historical photos are included; Contact deliberately directs visitors to professional profiles.
+- A dependency lockfile still needs to be generated from a real npm ci and committed prior to production release.
 
 See `../docs/v2/` for the migration plan.
 
 ## Preview deployment note
 
-A fork-only GitHub Pages preview workflow is included. GitHub Actions successfully generated its Pages artifact, but the first deployment was rejected with HTTP 404 because Pages has not yet been enabled on the fork. Enable GitHub Pages in fork repository Settings → Pages, select **GitHub Actions** as the source, then re-run the failed job. The canonical organization site is unaffected.
+The fork-only workflow generates a static `gh-pages` preview without modifying the canonical organization site. Its previews are tagged `noindex,nofollow`. The old direct-deploy preview workflow remains restricted to the fork and is not triggered on pushes.

@@ -1,11 +1,11 @@
 ---
 title: "Radio-SLAM and Multipath Geometry"
 summary: "Radio-based localization and mapping using estimated propagation delays and angles."
-status: "Research in Progress"
+status: "Under Review"
 period: "2026"
 tags: ["Radio-SLAM", "Multipath geometry", "Localization"]
 featured: false
-sortOrder: 4
+sortOrder: 5
 ---
 
 ## Research problem
@@ -20,6 +20,6 @@ This research investigates radio-based SLAM with propagation measurements, inclu
 
 The experiments examine trajectory-estimation error, relative pose consistency and sensitivity to measurement quality. Diagnostic tests and ablations are used to distinguish limitations of the geometric model from errors in the radio measurements.
 
-## Status
+## Manuscript
 
-**Research in progress.**
+The manuscript is **under review**.

@@ -5,7 +5,7 @@ status: "Published"
 period: "2024"
 tags: ["Federated meta-learning", "Adaptation", "Localization"]
 featured: true
-sortOrder: 6
+sortOrder: 7
 paperUrl: "https://doi.org/10.1109/JIOT.2024.3440175"
 ---
 

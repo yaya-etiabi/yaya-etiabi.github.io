@@ -5,7 +5,7 @@ status: "Published"
 period: "2024"
 tags: ["Federated distillation", "Regression", "Localization"]
 featured: false
-sortOrder: 7
+sortOrder: 8
 paperUrl: "https://doi.org/10.1109/JSEN.2024.3357798"
 ---
 

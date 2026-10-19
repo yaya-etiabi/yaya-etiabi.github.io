@@ -5,7 +5,7 @@ status: "Under Review"
 period: "2026"
 tags: ["Radio-SLAM", "Multipath geometry", "Localization"]
 featured: false
-sortOrder: 5
+sortOrder: 3
 ---
 
 ## Research problem

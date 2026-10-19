@@ -5,7 +5,7 @@ status: "Research in Progress"
 period: "2026"
 tags: ["Neuromorphic ISCC", "Edge inference", "Event-driven computing"]
 featured: false
-sortOrder: 3
+sortOrder: 5
 ---
 
 ## Research direction

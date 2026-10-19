@@ -11,7 +11,8 @@ export function getStaticPaths() {
   "scientific-day-at-isep": "/talks/#scientific-day-at-isep",
   "the-arc-nexus-forum": "/talks/#the-arc-nexus-forum",
   "ieee-reviewer-tpc-member": "/teaching-outreach/#ieee-reviewer-tpc-member",
-  "ieee-vtc-2023": "/talks/#2023-01-01-lora-localization-drl"
+  "ieee-vtc-2023": "/talks/#2023-01-01-lora-localization-drl",
+  "semi-marathon-participation": "/about/#half-marathons"
 };
   return Object.entries(mapping).map(([slug,destination])=>({params:{slug},props:{destination}}));
 }

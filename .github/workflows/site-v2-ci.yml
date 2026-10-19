@@ -40,3 +40,8 @@ jobs:
           npm run build
           npm run test:links
           grep -q 'noindex,nofollow' dist/index.html
+          grep -q 'https://yaya-etiabi.github.io/' dist/index.html
+          if grep -q 'href="https://yaya195.github.io/yaya-etiabi.github.io/' dist/index.html; then
+            echo "Preview canonical incorrectly contains project base" >&2
+            exit 1
+          fi

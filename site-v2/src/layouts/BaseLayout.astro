@@ -19,7 +19,13 @@ const nav = [
 const current = Astro.url.pathname;
 const rootPath = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
 const preview = rootPath.length > 0;
-const canonical = new URL(Astro.url.pathname, Astro.site).href;
+// Preview pages live under a project subpath. Their canonical URLs must instead
+// refer to the clean paths reserved for the official root-domain site.
+const canonicalPath = preview && (current === rootPath || current.startsWith(rootPath + '/'))
+  ? current.slice(rootPath.length) || '/'
+  : current;
+const canonical = new URL(canonicalPath, preview ? 'https://yaya-etiabi.github.io' : Astro.site).href;
+const pageTitle = title === site.heading ? title : title + ' | ' + site.name;
 ---
 <!doctype html>
 <html lang="en">
@@ -31,8 +37,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta name="author" content="Yaya Etiabi" />
     <meta name="robots" content={preview ? 'noindex,nofollow' : 'index,follow'} />
     <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
-    <title>{title === site.heading ? title : title + ' | ' + site.name}</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -41,7 +53,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
         <a class="wordmark" href={withBase('/')} aria-label="Yaya Etiabi — homepage">Yaya Etiabi</a>
         <nav aria-label="Primary navigation" class="primary-nav">
           {nav.map((item) => (
-            <a href={withBase(item.href)} aria-current={current.includes(item.href) ? 'page' : undefined}>{item.label}</a>
+            <a href={withBase(item.href)} aria-current={current.startsWith(withBase(item.href)) ? 'page' : undefined}>{item.label}</a>
           ))}
         </nav>
       </div>

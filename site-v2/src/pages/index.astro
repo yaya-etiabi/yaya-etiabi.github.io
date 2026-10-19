@@ -11,7 +11,7 @@ const projects = (await getCollection('projects')).sort((a,b) => a.data.sortOrde
 const featured = projects.filter(p=>p.data.featured).slice(0,3);
 const publications = (await getCollection('publications')).filter(p=>p.data.featured).sort((a,b)=>b.data.year-a.data.year).slice(0,3);
 const areas = [
-  {number:'01',title:'Edge Intelligence & ISCC',description:'Co-design of sensing, communication, and computation for efficient learning and inference at the network edge, with emerging research interests in Neuromorphic ISCC.'},
+  {number:'01',title:'Edge Intelligence & ISCC',description:'Co-design of sensing, communication, and computation for efficient learning and inference at the network edge, including ongoing investigations of neuromorphic approaches.'},
   {number:'02',title:'Wireless Sensing & Localization',description:'Learning from radio measurements and sensor observations for localization and environmental understanding.'},
   {number:'03',title:'Collaborative & Privacy-Preserving ML',description:'Distributed learning, adaptation and communication-efficient knowledge exchange in wireless networks.'},
 ];
@@ -53,7 +53,7 @@ const areas = [
 
   <section class="section soft-section">
     <div class="container">
-      <div class="section-head"><div><div class="eyebrow section-label">Selected work</div><h2>Research Projects</h2></div><a class="link-arrow" href={withBase('/projects/')}>All projects ↗</a></div>
+      <div class="section-head"><div><div class="eyebrow section-label">Selected work</div><h2>Research projects</h2></div><a class="link-arrow" href={withBase('/projects/')}>All projects ↗</a></div>
       <div class="grid-3">{featured.map((project,index)=><ProjectCard slug={project.id} title={project.data.title} summary={project.data.summary} status={project.data.status} period={project.data.period} tags={project.data.tags} index={index}/>)}</div>
     </div>
   </section>

@@ -1,20 +1,35 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase, site } from '../../lib/site';
+import { Image } from 'astro:assets';
+import portrait from '../../assets/yaya-portrait-cutout.webp';
 ---
 <BaseLayout
   title="About"
   description="Yaya Etiabi's research background, academic experience, teaching, mentoring and scientific activities."
 >
-  <section class="page-hero">
-    <div class="container">
-      <div class="eyebrow">Background &amp; academic activities</div>
-      <h1>About me</h1>
-      <p class="lead">
-        I am a researcher working at the intersection of machine learning and wireless communications.
-        I hold a PhD in Computer Science and an engineering degree in Electrical Engineering,
-        with a specialization in embedded systems and telecommunications.
-      </p>
+  <section class="page-hero about-hero">
+    <div class="container about-hero-grid">
+      <div class="about-hero-copy">
+        <div class="eyebrow">Background &amp; academic activities</div>
+        <h1>About me</h1>
+        <p class="lead">
+          I am a researcher working at the intersection of machine learning and wireless communications.
+          I hold a PhD in Computer Science and an engineering degree in Electrical Engineering,
+          with a specialization in embedded systems and telecommunications.
+        </p>
+      </div>
+      <figure class="about-hero-portrait">
+        <Image
+          src={portrait}
+          alt="Portrait of Yaya Etiabi"
+          width={480}
+          format="webp"
+          quality={80}
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
     </div>
   </section>
 

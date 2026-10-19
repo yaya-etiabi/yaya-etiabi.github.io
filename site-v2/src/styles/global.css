@@ -158,3 +158,22 @@ p { margin: 0 0 16px; }
 
 /* About page navigation */
 .sidebar-panel .sidebar-divider{border-top:1px solid var(--line);margin:22px 0 21px;}
+
+/* About page hero: portrait shared with the homepage */
+.about-hero { overflow: hidden; }
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 305px);
+  align-items: center;
+  gap: clamp(28px, 6vw, 92px);
+}
+.about-hero-copy .lead { max-width: 690px; margin-bottom: 0; }
+.about-hero-portrait { margin: 0; width: 100%; max-width: 305px; justify-self: end; }
+.about-hero-portrait img { width: 100%; height: auto; display: block; object-fit: contain; }
+@media (max-width: 900px) {
+  .about-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(195px, 245px); gap: 30px; }
+}
+@media (max-width: 720px) {
+  .about-hero-grid { grid-template-columns: 1fr; gap: 22px; }
+  .about-hero-portrait { max-width: 200px; justify-self: start; }
+}
